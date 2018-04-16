@@ -1,0 +1,2 @@
+[![CircleCI](https://circleci.com/gh/ncobb01/HWAD340.svg?style=svg)](https://circleci.com/gh/ncobb01/HWAD340)
+[![codecov](https://codecov.io/gh/ncobb01/HWAD340/branch/master/graph/badge.svg)](https://codecov.io/gh/ncobb01/HWAD340)
