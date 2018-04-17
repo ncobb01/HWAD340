@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void LoginButton(){
-        btnlogin = (Button) findViewById(R.id.btnlogin);
-        age = (EditText) findViewById(R.id.age);
-       birthDate = (EditText) findViewById(R.id.birthDate);
-       birthDate = (EditText) findViewById(R.id.username);
+        btnlogin = (Button) findViewById(R.id.form_submit);
+        age = (EditText) findViewById(R.id.form_age);
+       birthDate = (EditText) findViewById(R.id.form_dob);
+       birthDate = (EditText) findViewById(R.id.form_username);
 
 
     }
