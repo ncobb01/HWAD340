@@ -19,7 +19,7 @@
         android:layout_marginTop="5dp"
         android:text="Cobb, Nathan 4/14/18"
         android:textColor="#ce3232"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:padding="16dp"
 
         android:typeface="serif"
@@ -33,6 +33,7 @@
         app:layout_constraintVertical_bias="0.1" />
 
     <EditText
+        android:id="@+id/form_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
@@ -53,6 +54,7 @@
 
 
     <EditText
+        android:id="@+id/form_email"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
@@ -71,6 +73,7 @@
         />
 
     <EditText
+        android:id="@+id/form_username"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimaryDark"
@@ -86,6 +89,7 @@
         />
 
     <EditText
+        android:id="@+id/form_age"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimaryDark"
@@ -101,6 +105,7 @@
         />
 
     <EditText
+        android:id="@+id/form_dob"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimaryDark"
@@ -118,6 +123,7 @@
 
 
     <Button
+        android:id="@+id/form_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
