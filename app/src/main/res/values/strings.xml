@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HW-AD340</string>
+    <string name="title_activity_confirmation_page">ConfirmationPage</string>
 </resources>
