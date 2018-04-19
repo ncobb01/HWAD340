@@ -17,7 +17,6 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="5dp"
-        android:text="Thanks for registering "
         android:textColor="#ce3232"
         android:textSize="15sp"
         android:padding="16dp"
@@ -45,7 +44,7 @@
         android:paddingRight="70dp"
         android:text="Home"
         android:textColor="#fff"
-
+        android:onClick="goToFirstActivity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintLeft_toLeftOf="parent"

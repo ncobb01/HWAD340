@@ -1,27 +1,44 @@
 package com.example.ncobb01.hw_ad340;
 
+
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
-import android.content.Intent;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
-import android.app.Activity;
-
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+import java.util.Calendar;
+
+import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+
+import android.os.Bundle;
+
+import android.view.Menu;
+import android.view.View;
+
 import android.widget.DatePicker;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
 
+public class MainActivity extends AppCompatActivity  {
 
-public class MainActivity extends AppCompatActivity {
+    private static final String TAG = MainActivity.class.getSimpleName();
 
-    private Button btnlogin;
+    private Button loginBtn;
+    private EditText name;
+    private TextView textView;
+    private EditText username;
     private EditText age;
     private EditText birthDate;
-    private EditText username;
 
 
 
@@ -30,82 +47,100 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        btnlogin = (Button) findViewById(R.id.form_submit);
-
-        btnlogin.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ConfirmationPage.class));
-            }
-        });
+        loginBtn = findViewById(R.id.form_submit);
 
 
-
-        age = (EditText) findViewById(R.id.form_age);
-       birthDate = (EditText) findViewById(R.id.form_dob);
-       username = (EditText) findViewById(R.id.form_username);
-
-       Intent i = new Intent(MainActivity.this, ConfirmationPage.class);
-
-
-        Bundle bundle = new Bundle();
-
-        bundle.putString("USERNAME", username.getText().toString());
-
-        i.putExtras(bundle);
-        startActivity(i);
+        name = findViewById(R.id.form_name);
+       // textView = findViewById(R.id.textView);
+        username = findViewById(R.id.form_username);
+        age = findViewById(R.id.form_age);
+        birthDate = findViewById(R.id.form_dob);
 
 
 
+        Log.i(TAG, "onCreate()");
 
 
-        //mText.setText("Welcome "+mEdit.getText().toString()+"!");
-
-//
-//        btnlogin.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick( new View.OnClickListener)
-//                                    }
-//
-//            LoginButtonClick(); }
-
-
-//            public void LoginButtonClick() {
-//
-//        int ageInfo = age;
-//
-//        if birthDate < 18 {
-//            String tooYoung = jObj.getString("Users must be at least 18 years old.");
-//            }
-//        else
-
-           // Move user to completion page
-
-
-
-    public static class DatePickerFragment extends AppCompatActivity
-            implements DatePickerDialog.OnDateSetListener {
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current date as the default date in the picker
-            final Calendar c = Calendar.getInstance();
-            int year = c.get(Calendar.YEAR);
-            int month = c.get(Calendar.MONTH);
-            int day = c.get(Calendar.DAY_OF_MONTH);
-
-            // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, month, day);
-        }
-
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-            // Do something with the date chosen by the user
-        }
     }
 
 
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+    public void showDatePicker(View v) {
+        DialogFragment newFragment = new myDatePicker();
+        newFragment.show(getSupportFragmentManager(), "date picker");
     }
+
+    public void goToSecondActivity(View view) {
+
+
+        Intent intent = new Intent(MainActivity.this, ConfirmationPage.class);
+        intent.putExtra(Constants.KEY_NAME, username.getText().toString());
+        //intent.putExtra(Constants.KEY_AGE, 24);
+        startActivity(intent);
+    }
+
+
+
+//    public void onLogin(View view) {
+//        loginBtn.setText(R.string.Logout);
+//        textView.setText(String.format(getString(R.string.Welcome), name.getText()));
+//    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(TAG, "onRestart()");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart()");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        Log.i(TAG, "onRestoreInstanceState()");
+        if (savedInstanceState.containsKey(Constants.KEY_NAME)) {
+            textView.setText((String)savedInstanceState.get(Constants.KEY_NAME));
         }
+
+        if (savedInstanceState.containsKey(Constants.KEY_BUTTON_TXT)) {
+            loginBtn.setText((String) savedInstanceState.get(Constants.KEY_BUTTON_TXT));
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        Log.i(TAG, "onSaveInstanceState()");
+        outState.putString(Constants.KEY_NAME, textView.getText().toString());
+        outState.putString(Constants.KEY_BUTTON_TXT, loginBtn.getText().toString());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG, "onStop()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "onDestroy()");
+    }
+}

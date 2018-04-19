@@ -17,11 +17,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="5dp"
-        android:text="Cobb, Nathan 4/14/18"
+        android:text="@string/cobb_nathan_4_14_18"
         android:textColor="#ce3232"
         android:textSize="15sp"
         android:padding="16dp"
-
         android:typeface="serif"
 
 
@@ -104,28 +103,52 @@
 
         />
 
-    <EditText
-        android:id="@+id/form_dob"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:hint="Date of birth"
-        android:ems="10"
-        android:inputType="date"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.579"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8"
-        />
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click to enter birthdate."
-        android:onClick="showDatePickerDialog" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Pick Birthdate"
+        android:onClick="showDatePicker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.8"  />
+
+
+    <DatePicker
+        android:id="@+id/dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        />
+
+
+    <!--<EditText-->
+        <!--android:id="@+id/form_dob"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:backgroundTint="@color/colorPrimaryDark"-->
+        <!--android:hint="Date of birth"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="date"-->
+
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.579"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.8"-->
+        <!--/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Click to enter birthdate."-->
+        <!--android:onClick="showDatePickerDialog" />-->
 
 
     <Button
@@ -139,7 +162,7 @@
         android:paddingRight="70dp"
         android:text="Submit"
         android:textColor="#fff"
-
+        android:onClick="goToSecondActivity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintLeft_toLeftOf="parent"
