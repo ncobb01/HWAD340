@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity  {
     private TextView textView;
     private EditText username;
     private EditText age;
-    private EditText birthDate;
+    private DatePicker birthDate;
 
 
 
@@ -54,9 +54,7 @@ public class MainActivity extends AppCompatActivity  {
        // textView = findViewById(R.id.textView);
         username = findViewById(R.id.form_username);
         age = findViewById(R.id.form_age);
-        birthDate = findViewById(R.id.form_dob);
-
-
+        birthDate = findViewById(R.id.dp);
 
         Log.i(TAG, "onCreate()");
 
