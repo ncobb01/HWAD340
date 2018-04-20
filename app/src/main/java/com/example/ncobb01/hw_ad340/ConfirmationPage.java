@@ -16,8 +16,7 @@ public class ConfirmationPage extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_confirmation_page);
-        //textView = findViewById(R.id.textView);
+        setContentView(R.layout.content_confirmation_page);
 
         StringBuilder msg = new StringBuilder("Hello \n");
         Intent intent = getIntent();
@@ -30,13 +29,6 @@ public class ConfirmationPage extends AppCompatActivity {
             Log.i(TAG, "Username: " + name);
         }
 
-
-//        if (b.containsKey(Constants.KEY_AGE)) {
-//            int age = b.getInt(Constants.KEY_AGE);
-//            msg.append(age).append(" years old");
-//            Log.i(TAG, "Age: " + age);
-//        }
-
         textView.setText(msg);
 
         Log.i(TAG, "onCreate()");
@@ -44,8 +36,7 @@ public class ConfirmationPage extends AppCompatActivity {
 
     public void goToFirstActivity(View view) {
 
-
-        Intent intent = new Intent(ConfirmationPage.this, MainActivity.class );
+        Intent intent = new Intent(ConfirmationPage.this, MainActivity.class);
 
         startActivity(intent);
     }

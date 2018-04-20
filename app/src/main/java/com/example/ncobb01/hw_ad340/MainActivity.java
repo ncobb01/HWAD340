@@ -9,25 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import java.util.Calendar;
-
-import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-
-import android.os.Bundle;
-
-import android.view.Menu;
-import android.view.View;
-
 import android.widget.DatePicker;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
+
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -51,37 +35,30 @@ public class MainActivity extends AppCompatActivity  {
 
 
         name = findViewById(R.id.form_name);
-       // textView = findViewById(R.id.textView);
         username = findViewById(R.id.form_username);
         age = findViewById(R.id.form_age);
         birthDate = findViewById(R.id.dp);
 
-        Log.i(TAG, "onCreate()");
+            Log.i(TAG, "onCreate()");
 
 
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ConfirmationPage.class));
+            }
+        });
     }
 
-
-    public void showDatePicker(View v) {
-        DialogFragment newFragment = new myDatePicker();
-        newFragment.show(getSupportFragmentManager(), "date picker");
-    }
 
     public void goToSecondActivity(View view) {
 
 
         Intent intent = new Intent(MainActivity.this, ConfirmationPage.class);
         intent.putExtra(Constants.KEY_NAME, username.getText().toString());
-        //intent.putExtra(Constants.KEY_AGE, 24);
         startActivity(intent);
+        finish();
     }
 
-
-
-//    public void onLogin(View view) {
-//        loginBtn.setText(R.string.Logout);
-//        textView.setText(String.format(getString(R.string.Welcome), name.getText()));
-//    }
 
     @Override
     protected void onRestart() {
