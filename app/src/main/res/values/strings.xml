@@ -13,4 +13,8 @@
     <string name="Welcome">Welcome: %s</string>
     <string name="Logout">Logout</string>
     <string name="nathan_cobb_4_24_18">Nathan Cobb 4-24-18</string>
+    <string name="please_enter_your_name">Please enter your name</string>
+    <string name="please_enter_your_occupation">Please enter your occupation</string>
+    <string name="please_describe_yourself">Please describe yourself</string>
+    <string name="log_in">Log in</string>
 </resources>

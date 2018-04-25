@@ -28,7 +28,7 @@
             android:id="@+id/nameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Please enter your name"
+            android:hint="@string/please_enter_your_name"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="40dp"
             android:inputType="text"/>
@@ -60,7 +60,7 @@
             android:id="@+id/occupationEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Please enter your occupation"
+            android:hint="@string/please_enter_your_occupation"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
             android:inputType="text"/>
@@ -71,7 +71,7 @@
             android:id="@+id/occupation2EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Please describe yourself"
+            android:hint="@string/please_describe_yourself"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
             android:inputType="text"/>
@@ -82,7 +82,7 @@
             android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Log in"
+            android:text="@string/log_in"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="0dp"
             android:padding="10dp"
