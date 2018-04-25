@@ -26,18 +26,18 @@ public class EspressoTest {
 
     @Test
     public void espressoTest() {
-        onView(withId(R.id.form_title)).check(matches(withText(R.string.cobb_nathan_4_14_18)));
-        onView(withId(R.id.form_name)).check(matches(withText(R.string.name)));
-        onView(withId(R.id.form_email)).check(matches(withText(R.string.email)));
-        onView(withId(R.id.form_username)).check(matches(withText(R.string.username)));
-        onView(withId(R.id.form_age)).check(matches(withText(R.string.age)));
-        onView(withId(R.id.form_birthSpin)).check(matches(withText(R.string.please_select_your_birthdate)));
-        onView(withId(R.id.form_submit)).check(matches(withText(R.string.submit)));
-        onView(withId(R.id.homepage)).check(matches(withText(R.string.home)));
-
-        onView(withId(R.id.form_submit)).perform(click()).check(matches(isEnabled()));
-        onView(withId(R.id.dp)).perform(click()).check(matches(isEnabled()));
-        onView(withId(R.id.homepage)).perform(click()).check(matches(isEnabled()));
+        onView(withId(R.id.assignInfo)).check(matches(withText(R.string.nathan_cobb_4_24_18)));
+        onView(withId(R.id.nameEditText)).check(matches(withText(R.string.name)));
+//        onView(withId(R.id.form_email)).check(matches(withText(R.string.email)));
+//        onView(withId(R.id.form_username)).check(matches(withText(R.string.username)));
+//        onView(withId(R.id.form_age)).check(matches(withText(R.string.age)));
+//        onView(withId(R.id.form_birthSpin)).check(matches(withText(R.string.please_select_your_birthdate)));
+//        onView(withId(R.id.form_submit)).check(matches(withText(R.string.submit)));
+//        onView(withId(R.id.homepage)).check(matches(withText(R.string.home)));
+//
+//        onView(withId(R.id.form_submit)).perform(click()).check(matches(isEnabled()));
+//        onView(withId(R.id.dp)).perform(click()).check(matches(isEnabled()));
+//        onView(withId(R.id.homepage)).perform(click()).check(matches(isEnabled()));
 
 
     }
