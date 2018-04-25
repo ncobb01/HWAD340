@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
 import android.widget.Toast;
-
+import java.util.GregorianCalendar;
 import java.util.Calendar;
 
 public class myDatePicker extends DialogFragment {
@@ -27,6 +27,11 @@ public class myDatePicker extends DialogFragment {
                     Toast.makeText(getActivity(), "selected date is " + view.getYear() +
                             " / " + (view.getMonth()+1) +
                             " / " + view.getDayOfMonth(), Toast.LENGTH_SHORT).show();
+
+
+                    // 18 validation spot?
                 }
             };
-}
+
+
+    }

@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
-import android.view.View;
 
 public class ConfirmationPage extends AppCompatActivity {
 
@@ -18,7 +17,11 @@ public class ConfirmationPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_confirmation_page);
 
-        StringBuilder msg = new StringBuilder("Hello \n");
+
+
+        textView = findViewById(R.id.textView);
+
+        StringBuilder msg = new StringBuilder("");
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
 
@@ -26,21 +29,35 @@ public class ConfirmationPage extends AppCompatActivity {
         if (b.containsKey(Constants.KEY_NAME)) {
             String name = b.getString(Constants.KEY_NAME);
             msg.append(name).append("\n");
-            Log.i(TAG, "Username: " + name);
+            Log.i(TAG, "Name: " + name);
         }
+
+        if (b.containsKey(Constants.KEY_OCCUPATION)) {
+            String occupation = b.getString(Constants.KEY_OCCUPATION);
+            msg.append(occupation).append("\n");
+            Log.i(TAG, "Occupation: " + occupation);
+        }
+
+        if (b.containsKey(Constants.KEY_AGE)) {
+            int age = b.getInt(Constants.KEY_AGE);
+            msg.append(age).append(" years old \n\n");
+            Log.i(TAG, "Age: " + age);
+        }
+
+
+
+        if (b.containsKey(Constants.KEY_OCCUPATION2)) {
+            String occupation2 = b.getString(Constants.KEY_OCCUPATION2);
+            msg.append(occupation2).append("\n");
+            Log.i(TAG, "Occupation2: " + occupation2);
+        }
+
+
 
         textView.setText(msg);
 
         Log.i(TAG, "onCreate()");
     }
-
-    public void goToFirstActivity(View view) {
-
-        Intent intent = new Intent(ConfirmationPage.this, MainActivity.class);
-
-        startActivity(intent);
-    }
-
 
     @Override
     protected void onRestart() {
@@ -78,3 +95,5 @@ public class ConfirmationPage extends AppCompatActivity {
         Log.i(TAG, "onDestroy()");
     }
 }
+
+

@@ -1,51 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3D3D3"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ConfirmationPage"
-    tools:showIn="@layout/activity_confirmation_page">
+    android:background="@drawable/eiffel"
+
+    android:weightSum="4">
+
+    <ImageView
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/hearts"
+        android:layout_marginStart="10dp"
+        android:layout_weight="2"
+
+        />
+
+
+    <!--<ImageView-->
+        <!--android:id="@+id/img_frame"-->
+
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:contentDescription="Frame"-->
+        <!--android:src="@drawable/frame"/>-->
+
 
 
     <TextView
-        android:id="@+id/form_title"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView"
+
+
+        android:layout_weight="2"
+
+
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#ce3232"
-        android:textSize="15sp"
-        android:padding="16dp"
-        android:typeface="serif"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.579"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textColor="#F5F5F5"
+        android:textSize="25sp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="50dp"
+        />
+<!--</RelativeLayout>-->
 
-
-    <Button
-        android:id="@+id/homepage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/colorPrimaryDark"
-        android:elevation="4dp"
-        android:onClick="goToFirstActivity"
-        android:paddingLeft="70dp"
-        android:paddingRight="70dp"
-        android:text="@string/home"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.888" />
-
-</android.support.constraint.ConstraintLayout>
+    </LinearLayout>
