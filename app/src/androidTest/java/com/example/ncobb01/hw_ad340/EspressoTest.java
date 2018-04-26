@@ -63,6 +63,12 @@ public class EspressoTest {
                 .perform(typeText("Office Manager"), closeSoftKeyboard());
         onView(withId(R.id.secondActivityBtn)).perform(scrollTo()).perform(click());}
 
+    @Test
+    public void entryExample3() {
+
+        onView(withId(R.id.occupation2EditText))
+                .perform(typeText("I like long walks on the beach."), closeSoftKeyboard());
+        onView(withId(R.id.secondActivityBtn)).perform(scrollTo()).perform(click());}
 
 
 //    @Test
