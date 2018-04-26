@@ -50,15 +50,19 @@ public class EspressoTest {
 
     @Test
     public void entryExample() {
-        // Type text and then press the button.
-        // Type text and then press the button.
+
         onView(withId(R.id.nameEditText))
                 .perform(typeText("Nathan Cobb"), closeSoftKeyboard());
-        onView(withId(R.id.secondActivityBtn)).perform(scrollTo()).perform(click());
+        onView(withId(R.id.secondActivityBtn)).perform(scrollTo()).perform(click());}
 
-//        onView(withId(R.id.occupationEditText))
-//                .perform(typeText("Office Manager"), closeSoftKeyboard());
-//        onView(withId(R.id.secondActivityBtn)).perform(scrollTo()).perform(click());
+
+        @Test
+        public void entryExample2() {
+
+        onView(withId(R.id.occupationEditText))
+                .perform(typeText("Office Manager"), closeSoftKeyboard());
+        onView(withId(R.id.secondActivityBtn)).perform(scrollTo()).perform(click());}
+
 
 
 //    @Test
@@ -81,4 +85,4 @@ public class EspressoTest {
 //        }
 //    }
 //
-    }}
+    }
