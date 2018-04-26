@@ -19,7 +19,7 @@ import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExt
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 
 
 @RunWith(AndroidJUnit4.class)
@@ -48,6 +48,17 @@ public class EspressoTest {
 
     }
 
+    @Test
+    public void entryExample() {
+        // Type text and then press the button.
+        // Type text and then press the button.
+        onView(withId(R.id.nameEditText))
+                .perform(typeText("Nathan Cobb"), closeSoftKeyboard());
+        onView(withId(R.id.secondActivityBtn)).perform(scrollTo()).perform(click());
+
+//        onView(withId(R.id.occupationEditText))
+//                .perform(typeText("Office Manager"), closeSoftKeyboard());
+//        onView(withId(R.id.secondActivityBtn)).perform(scrollTo()).perform(click());
 
 
 //    @Test
@@ -70,5 +81,4 @@ public class EspressoTest {
 //        }
 //    }
 //
-
-}
+    }}
