@@ -63,8 +63,27 @@ public class EspressoTest {
   public void entryExample() {
 
         onView(withId(R.id.nameEditText))
-               .perform(typeText("Nathan Cobb"), closeSoftKeyboard());
+                .perform(typeText("Nathan Cobb"), closeSoftKeyboard());
         onView(withId(R.id.nameEditText)).check(matches(withText("Nathan Cobb")));
+    }
+
+
+    @Test
+    public void entryExample2() {
+
+        onView(withId(R.id.occupationEditText))
+                .perform(typeText("Office Manager"), closeSoftKeyboard());
+        onView(withId(R.id.occupationEditText)).check(matches(withText("Office Manager")));
+    }
+
+    @Test
+    public void entryExample3() {
+
+        onView(withId(R.id.occupation2EditText))
+                .perform(typeText("I like long walks on the beach."), closeSoftKeyboard());
+        onView(withId(R.id.occupationEditText)).check(matches(withText("I like long walks on the beach.")));
+    }
+
 
 
 
@@ -80,7 +99,6 @@ public class EspressoTest {
 //                .perform(typeText("Office Manager"), closeSoftKeyboard());
 //        onView(withId(R.id.secondActivityBtn)).perform(scrollTo()).perform(click());}
 //
-    }
 
 
 //    @Test
