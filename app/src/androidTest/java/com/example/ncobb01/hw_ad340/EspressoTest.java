@@ -76,7 +76,7 @@ public class EspressoTest {
 
     @Test
     public void canGoToSecondActivityWithMessage() {
-        onView(withId(R.id.nameEditText)).perform(typeText("Nathan Cobb"));
+        onView(withId(R.id.nameEditText)).perform(typeText("Nathan Cobb"), closeSoftKeyboard());
 
         try {
             Intents.init();
