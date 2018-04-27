@@ -28,8 +28,6 @@ public class myDatePicker extends DialogFragment {
                             " / " + (view.getMonth()+1) +
                             " / " + view.getDayOfMonth(), Toast.LENGTH_SHORT).show();
 
-
-                    // 18 validation spot?
                 }
             };
 

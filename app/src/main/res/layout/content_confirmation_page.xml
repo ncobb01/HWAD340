@@ -18,17 +18,7 @@
         android:layout_weight="2"
 
         />
-
-
-    <!--<ImageView-->
-        <!--android:id="@+id/img_frame"-->
-
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:contentDescription="Frame"-->
-        <!--android:src="@drawable/frame"/>-->
-
-
+    
 
     <TextView
         android:id="@+id/textView"
@@ -48,6 +38,5 @@
         android:layout_marginTop="18dp"
         android:layout_marginBottom="50dp"
         />
-<!--</RelativeLayout>-->
 
     </LinearLayout>

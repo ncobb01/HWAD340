@@ -23,9 +23,7 @@ public class MainActivity extends AppCompatActivity  {
     private Button loginBtn;
     private EditText editTextName;
     private EditText editTextOcc;
-   // private EditText editTextDesc;
     private TextView textView;
-   // private TextView editTextDescription;
     private EditText editTextOcc2;
 
 
@@ -39,9 +37,7 @@ public class MainActivity extends AppCompatActivity  {
         loginBtn = findViewById(R.id.loginBtn);
         editTextName = findViewById(R.id.nameEditText);
         editTextOcc = findViewById(R.id.occupationEditText);
-        //editTextDesc = findViewById(R.id.descEditText);
         textView = findViewById(R.id.textView);
-        //editTextDescription = findViewById(R.id.descriptionEditText);
         editTextOcc2 = findViewById(R.id.occupation2EditText);
 
 
@@ -88,8 +84,6 @@ public int calculateAge () {
 
     int difDays = difference.get(Calendar.DAY_OF_MONTH);
 
-
-//return (difYear + (difMonth + difDays/ 30)/12) - 1970;
     int age = (difYear + (difMonth + difDays / 30) / 12) - 1970;
     return age;
 }
@@ -120,7 +114,6 @@ public int calculateAge () {
         int difDays = difference.get(Calendar.DAY_OF_MONTH);
 
 
-//return (difYear + (difMonth + difDays/ 30)/12) - 1970;
         int age = (difYear + (difMonth + difDays / 30) / 12) - 1970;
 
     if (age < 18) {
@@ -133,7 +126,6 @@ public int calculateAge () {
 
 
 }
-
 
 
 
