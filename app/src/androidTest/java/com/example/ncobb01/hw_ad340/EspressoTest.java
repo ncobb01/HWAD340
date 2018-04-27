@@ -33,7 +33,9 @@ public class EspressoTest {
     @Test
     public void mainActivityTest() {
         onView(withId(R.id.assignInfo)).check(matches(withText(R.string.nathan_cobb_4_24_18)));
-//        onView(withId(R.id.nameEditText)).check(matches(withText(R.string.please_enter_your_name)));
+
+
+      //onView(withId(R.id.nameEditText)).check(matches(withText(R.string.please_enter_your_name)));
 //        onView(withId(R.id.form_birthSpin)).check(matches(withText(R.string.please_select_your_birthdate)));
 //
 //        // need to add datepicker still!
@@ -57,14 +59,19 @@ public class EspressoTest {
 
 
 
+    @Test
+  public void entryExample() {
 
-//    @Test
-//    public void entryExample() {
-//
+        onView(withId(R.id.nameEditText))
+               .perform(typeText("Nathan Cobb"), closeSoftKeyboard());
+        onView(withId(R.id.nameEditText)).check(matches(withText("Nathan Cobb")));
+
+
+
 //        onView(withId(R.id.nameEditText))
 //                .perform(typeText("Nathan Cobb"), closeSoftKeyboard());
 //        onView(withId(R.id.secondActivityBtn)).perform(scrollTo()).perform(click());}
-//
+//onView(withId(R.id.form_birthSpin)).check(matches(withText(R.string.please_select_your_birthdate)));
 //
 //        @Test
 //        public void entryExample2() {
@@ -73,6 +80,9 @@ public class EspressoTest {
 //                .perform(typeText("Office Manager"), closeSoftKeyboard());
 //        onView(withId(R.id.secondActivityBtn)).perform(scrollTo()).perform(click());}
 //
+    }
+
+
 //    @Test
 //    public void entryExample3() {
 //
