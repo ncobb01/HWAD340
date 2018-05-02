@@ -1,99 +1,74 @@
 package com.example.ncobb01.hw_ad340;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 public class ConfirmationPage extends AppCompatActivity {
 
-    private static final String TAG = ConfirmationPage.class.getSimpleName();
-    TextView textView;
-
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_confirmation_page);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
 
-
-        textView = findViewById(R.id.textView);
-
-        StringBuilder msg = new StringBuilder("");
-        Intent intent = getIntent();
-        Bundle b = intent.getExtras();
-
-        assert b != null;
-        if (b.containsKey(Constants.KEY_NAME)) {
-            String name = b.getString(Constants.KEY_NAME);
-            msg.append(name).append("\n");
-            Log.i(TAG, "Name: " + name);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
         }
 
-        if (b.containsKey(Constants.KEY_OCCUPATION)) {
-            String occupation = b.getString(Constants.KEY_OCCUPATION);
-            msg.append(occupation).append("\n");
-            Log.i(TAG, "Occupation: " + occupation);
+        viewPager.setAdapter(new SectionPagerAdapter(getSupportFragmentManager()));
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
+    public class SectionPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionPagerAdapter(FragmentManager fm) {
+            super(fm);
         }
 
-        if (b.containsKey(Constants.KEY_AGE)) {
-            int age = b.getInt(Constants.KEY_AGE);
-            msg.append(age).append(" years old \n\n");
-            Log.i(TAG, "Age: " + age);
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return new FragmentA();
+                case 1:
+
+                    return new FragmentB();
+
+                case 2:
+                default:
+                    return new FragmentC();
+
+            }
         }
 
-
-
-        if (b.containsKey(Constants.KEY_OCCUPATION2)) {
-            String occupation2 = b.getString(Constants.KEY_OCCUPATION2);
-            msg.append(occupation2).append("\n");
-            Log.i(TAG, "Occupation2: " + occupation2);
+        @Override
+        public int getCount() {
+            return 3;
         }
 
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "Profile";
+                case 1:
 
+                    return "Matches";
 
-        textView.setText(msg);
-
-        Log.i(TAG, "onCreate()");
+                case 2:
+                default:
+                    return "Settings";
+            }
+        }
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.i(TAG, "onRestart()");
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.i(TAG, "onStart()");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i(TAG, "onResume()");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i(TAG, "onPause()");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.i(TAG, "onStop()");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, "onDestroy()");
-    }
 }
-
-

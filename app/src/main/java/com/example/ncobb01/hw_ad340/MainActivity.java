@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void goToSecondActivity(View view) {
-       ageValidate();
+        ageValidate();
 
 
 
@@ -61,32 +61,32 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
-public int calculateAge () {
-    DatePicker datePicker = (DatePicker) findViewById(R.id.dp);
+    public int calculateAge () {
+        DatePicker datePicker = (DatePicker) findViewById(R.id.dp);
 
-    int day = datePicker.getDayOfMonth();
-    int month = datePicker.getMonth();
-    int year = datePicker.getYear();
+        int day = datePicker.getDayOfMonth();
+        int month = datePicker.getMonth();
+        int year = datePicker.getYear();
 
-    Calendar dob = Calendar.getInstance();
-    Calendar today = Calendar.getInstance();
+        Calendar dob = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
 
-    dob.set(Calendar.DAY_OF_MONTH, day);
-    dob.set(Calendar.MONTH, month);
-    dob.set(Calendar.YEAR, year);
+        dob.set(Calendar.DAY_OF_MONTH, day);
+        dob.set(Calendar.MONTH, month);
+        dob.set(Calendar.YEAR, year);
 
-    long dif = today.getTimeInMillis() - dob.getTimeInMillis();
-    Calendar difference = Calendar.getInstance();
-    difference.setTimeInMillis(dif);
+        long dif = today.getTimeInMillis() - dob.getTimeInMillis();
+        Calendar difference = Calendar.getInstance();
+        difference.setTimeInMillis(dif);
 
-    int difYear = difference.get(Calendar.YEAR);
-    int difMonth = difference.get(Calendar.MONTH);
+        int difYear = difference.get(Calendar.YEAR);
+        int difMonth = difference.get(Calendar.MONTH);
 
-    int difDays = difference.get(Calendar.DAY_OF_MONTH);
+        int difDays = difference.get(Calendar.DAY_OF_MONTH);
 
-    int age = (difYear + (difMonth + difDays / 30) / 12) - 1970;
-    return age;
-}
+        int age = (difYear + (difMonth + difDays / 30) / 12) - 1970;
+        return age;
+    }
 
 
     public void ageValidate(){
@@ -116,23 +116,19 @@ public int calculateAge () {
 
         int age = (difYear + (difMonth + difDays / 30) / 12) - 1970;
 
-    if (age < 18) {
+        if (age < 18) {
 
-        Toast.makeText(this, "Users should be 18 years old", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Users should be 18 years old", Toast.LENGTH_SHORT).show();
+
+
+        }
+
 
 
     }
 
 
 
-}
-
-
-
-    public void goToFrameLayoutExample(View view) {
-        Intent intent = new Intent(MainActivity.this, FrameLayoutPictureActivity.class);
-        startActivity(intent);
-    }
 
     public void onLogin(View view) {
         loginBtn.setText(R.string.Logout);
