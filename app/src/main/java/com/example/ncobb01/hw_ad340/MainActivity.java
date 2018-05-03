@@ -112,12 +112,15 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-        Bundle bundle = new Bundle();
-        bundle.putString("params", "My String data");
-// set MyFragment Arguments
-        FragmentA myObj = new FragmentA();
-        myObj.setArguments(bundle);
+
+//
+//        FragmentA myObj = new FragmentA();
+//        Bundle bundle = new Bundle();
+//        bundle.putString("params", "My String data");
+//        myObj.setArguments(bundle);
     }
+
+
 
 
     public int calculateAge () {

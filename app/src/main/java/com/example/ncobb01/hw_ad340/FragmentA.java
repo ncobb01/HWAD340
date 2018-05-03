@@ -38,7 +38,7 @@ public class FragmentA extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-       //TextView textView=(TextView).findViewById(fragment_a);
+
 
 
         if (getArguments() != null) {
@@ -52,15 +52,42 @@ public class FragmentA extends Fragment {
     }
 
 
+
+//
+//    public static FragmentA newInstance(String valueToPass) {
+//
+//        FragmentA f = new FragmentA();
+//
+//        Bundle b = new Bundle();
+//        b.putString("key", valueToPass);
+//        f.setArguments(b);
+//
+//        return f;
+//    }
+
+
+
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+
         Log.i(TAG, "onCreate()");
 
-     //   String strtext = getArguments().getString("edttext");
-       // String getArgument = getArguments().getString("KEY_NAME");
 
-        return inflater.inflate(R.layout.fragment_a, container, false);
+
+       View view = inflater.inflate(R.layout.fragment_a, container, false);
+        TextView output= (TextView)view.findViewById(R.id.msg1);
+        output.setText("Fragment One");
+        return view;
+
+
+
+
+       // return inflater.inflate(R.layout.fragment_a, container, false);
+
 
 
 
