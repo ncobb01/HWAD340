@@ -37,7 +37,6 @@ public class EspressoTest {
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
 
-
     @Test
     public void mainActivityTest0() {
         onView(withId(R.id.form_birthSpin)).check(matches(withText(R.string.please_select_your_birthdate)));
@@ -54,35 +53,46 @@ public class EspressoTest {
     }
 
 
-
-        @Test
-  public void entryExample() {
+    @Test
+    public void entryExample() {
 
         onView(withId(R.id.nameEditText))
                 .perform(typeText("Nathan Cobb"), closeSoftKeyboard());
         onView(withId(R.id.nameEditText)).check(matches(withText("Nathan Cobb")));
     }
 
-//
-  @Test
-    public void canGoToSecondActivityWithMessage() {
-        onView(withId(R.id.nameEditText)).perform(typeText("Nathan Cobb"), closeSoftKeyboard());
+    //
+    public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
+        onView(withId(datePickerLaunchViewId)).perform(click());
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
 
-        try {
-            Intents.init();
-            onView(withId(R.id.secondActivityBtn)).perform(scrollTo(), click());
-            intended(hasComponent(ConfirmationPage.class.getName()));
-            intended(hasExtra(Constants.KEY_NAME, "Nathan Cobb"));
-        } finally {
-            Intents.release();
-
-
-        }
+        setDate(R.id.dp, 1999, 1, 1);
     }
 
 
-//    @Test
-//    public void canGoToSecondActivityWithMessage2() {
+
+
+    @Test
+    public void submit() {
+
+        onView(withId(R.id.nameEditText))
+                .perform(typeText("test_user")).perform(closeSoftKeyboard());
+        onView(withId(R.id.occupationEditText))
+                .perform(typeText("test_job")).perform(closeSoftKeyboard());
+
+        onView(withId(R.id.occupation2EditText))
+                .perform(typeText("I like sun.")).perform(closeSoftKeyboard());
+        //Thread.sleep(250);
+
+        onView(withId(R.id.secondActivityBtn)).perform(click());
+
+    //onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
+
+        }
+
+
+
+}
 //        onView(withId(R.id.occupationEditText)).perform(typeText("Office Manager"), closeSoftKeyboard());
 //
 //        try {
@@ -110,16 +120,10 @@ public class EspressoTest {
 //        }
 //    }
 
-    public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
-        onView(withId(datePickerLaunchViewId)).perform(click());
-        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
-
-        setDate(R.id.dp, 1999, 1, 1);
-    }
 
 
 
 
 
 
-    }
+
