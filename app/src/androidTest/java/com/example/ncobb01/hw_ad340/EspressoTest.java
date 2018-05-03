@@ -64,21 +64,21 @@ public class EspressoTest {
     }
 
 //
-//    @Test
-//    public void canGoToSecondActivityWithMessage() {
-//        onView(withId(R.id.nameEditText)).perform(typeText("Nathan Cobb"), closeSoftKeyboard());
-//
-//        try {
-//            Intents.init();
-//            onView(withId(R.id.secondActivityBtn)).perform(scrollTo(), click());
-//            intended(hasComponent(ConfirmationPage.class.getName()));
-//            intended(hasExtra(Constants.KEY_NAME, "Nathan Cobb"));
-//        } finally {
-//            Intents.release();
-//
-//
-//        }
-//    }
+  @Test
+    public void canGoToSecondActivityWithMessage() {
+        onView(withId(R.id.nameEditText)).perform(typeText("Nathan Cobb"), closeSoftKeyboard());
+
+        try {
+            Intents.init();
+            onView(withId(R.id.secondActivityBtn)).perform(scrollTo(), click());
+            intended(hasComponent(ConfirmationPage.class.getName()));
+            intended(hasExtra(Constants.KEY_NAME, "Nathan Cobb"));
+        } finally {
+            Intents.release();
+
+
+        }
+    }
 
 
 //    @Test
