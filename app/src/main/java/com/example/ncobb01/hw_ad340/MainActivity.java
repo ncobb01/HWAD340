@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-//    private FragmentManager manager;
-//    private EditText firstValue, secondValue, thirdValue;
 
 
 
@@ -48,10 +46,6 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-//        manager = getFragmentManager();
-//        firstValue = findViewById(R.id.firstValue);
-//        secondValue = findViewById(R.id.secondValue);
-//        thirdValue = findViewById(R.id.thirdValue);
 
 
 
@@ -63,31 +57,6 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-//    public void sendDataToFragment(View view) {
-//       int firstValue = Integer.valueOf(this.firstValue.getText().toString());
-//        int secondNumber = Integer.valueOf(this.secondValue.getText().toString());
-//        int thridNumber = Integer.valueOf(this.thirdValue.getText().toString());
-//
-//        FragmentForData fragment = new FragmentForData();
-//        fragment.setOperation(new Operation(firstValue,secondValue,thirdValue));
-//
-//        FragmentTransaction transaction = manager.beginTransaction();
-//        transaction.add(R.id.container, fragment, "fragA");
-//        transaction.commit();
-//    }
-
-
-
-
-//    public class Operation {
-//        public int firstNumber;
-//        public int secondNumber;
-//
-//        public Operation(int firstNumber, int secondNumber) {
-//            this.firstNumber = firstNumber;
-//            this.secondNumber = secondNumber;
-//        }
-//
 
 
 
@@ -108,16 +77,6 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-
-
-
-
-
-//
-//        FragmentA myObj = new FragmentA();
-//        Bundle bundle = new Bundle();
-//        bundle.putString("params", "My String data");
-//        myObj.setArguments(bundle);
     }
 
 

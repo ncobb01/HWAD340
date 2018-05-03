@@ -54,4 +54,72 @@ android:weightSum="4">
     />
 
 
+    <TextView
+        android:id="@+id/msg2"
+
+
+        android:layout_weight="2"
+
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textColor="#F5F5F5"
+        android:textSize="25sp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="50dp"
+        />
+
+    <TextView
+        android:id="@+id/msg3"
+
+
+        android:layout_weight="2"
+
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textColor="#F5F5F5"
+        android:textSize="25sp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="50dp"
+        />
+
+
+    <TextView
+        android:id="@+id/msg4"
+
+
+        android:layout_weight="2"
+
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textColor="#F5F5F5"
+        android:textSize="25sp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="50dp"
+        />
+
+
+
+
+
+
+
+
+
+
+
 </LinearLayout>

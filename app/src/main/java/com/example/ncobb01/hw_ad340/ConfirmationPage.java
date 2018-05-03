@@ -74,17 +74,6 @@ public class ConfirmationPage extends AppCompatActivity {
 
 
 
-//        Bundle bundle = new Bundle();
-//        bundle.putString("KEY_NAME", "age");
-//
-//        FragmentA fragobj = new FragmentA();
-//       fragobj.setArguments(bundle);
-
-
-
-
-
-
 
 
         Log.i(TAG, "onCreate()");

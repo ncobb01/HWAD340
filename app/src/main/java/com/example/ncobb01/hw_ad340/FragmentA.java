@@ -40,30 +40,8 @@ public class FragmentA extends Fragment {
 
 
 
-
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString("params");
-
-
-            TextView t = (TextView) getView().findViewById(R.id.msg1);
-            t.setText(mParam1);
-
-        }
     }
 
-
-
-//
-//    public static FragmentA newInstance(String valueToPass) {
-//
-//        FragmentA f = new FragmentA();
-//
-//        Bundle b = new Bundle();
-//        b.putString("key", valueToPass);
-//        f.setArguments(b);
-//
-//        return f;
-//    }
 
 
 
@@ -79,14 +57,25 @@ public class FragmentA extends Fragment {
 
 
        View view = inflater.inflate(R.layout.fragment_a, container, false);
-        TextView output= (TextView)view.findViewById(R.id.msg1);
-        output.setText("Fragment One");
+        TextView output1= (TextView)view.findViewById(R.id.msg1);
+        output1.setText("Fragment One");
+
+//        View view2 = inflater.inflate(R.layout.fragment_a, container, false);
+//        TextView output2= (TextView)view2.findViewById(R.id.msg2);
+//
+//        TextView output3= (TextView)view.findViewById(R.id.msg3);
+//
+//        TextView output4= (TextView)view.findViewById(R.id.msg4);
+//
+//
+//        output2.setText("Test1");
+//
+//        output3.setText("Test2");
+//        output4.setText("Test3");
+
         return view;
 
 
-
-
-       // return inflater.inflate(R.layout.fragment_a, container, false);
 
 
 
