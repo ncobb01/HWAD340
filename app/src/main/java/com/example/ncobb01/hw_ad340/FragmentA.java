@@ -24,6 +24,8 @@ import android.support.annotation.Nullable;
 public class FragmentA extends Fragment {
 
     private static final String TAG = FragmentA.class.getSimpleName();
+    String mParam1;
+
 
     @Override
     public void onAttach(Context context) {
@@ -36,6 +38,17 @@ public class FragmentA extends Fragment {
         super.onCreate(savedInstanceState);
 
 
+       //TextView textView=(TextView).findViewById(fragment_a);
+
+
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString("params");
+
+
+            TextView t = (TextView) getView().findViewById(R.id.msg1);
+            t.setText(mParam1);
+
+        }
     }
 
 
@@ -43,6 +56,9 @@ public class FragmentA extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         Log.i(TAG, "onCreate()");
+
+     //   String strtext = getArguments().getString("edttext");
+       // String getArgument = getArguments().getString("KEY_NAME");
 
         return inflater.inflate(R.layout.fragment_a, container, false);
 

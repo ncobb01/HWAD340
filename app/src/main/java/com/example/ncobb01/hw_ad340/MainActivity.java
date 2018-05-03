@@ -29,6 +29,12 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
+//    private FragmentManager manager;
+//    private EditText firstValue, secondValue, thirdValue;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +48,49 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
+//        manager = getFragmentManager();
+//        firstValue = findViewById(R.id.firstValue);
+//        secondValue = findViewById(R.id.secondValue);
+//        thirdValue = findViewById(R.id.thirdValue);
+
+
+
+
         Log.i(TAG, "onCreate()");
     }
+
+
+
+
+
+//    public void sendDataToFragment(View view) {
+//       int firstValue = Integer.valueOf(this.firstValue.getText().toString());
+//        int secondNumber = Integer.valueOf(this.secondValue.getText().toString());
+//        int thridNumber = Integer.valueOf(this.thirdValue.getText().toString());
+//
+//        FragmentForData fragment = new FragmentForData();
+//        fragment.setOperation(new Operation(firstValue,secondValue,thirdValue));
+//
+//        FragmentTransaction transaction = manager.beginTransaction();
+//        transaction.add(R.id.container, fragment, "fragA");
+//        transaction.commit();
+//    }
+
+
+
+
+//    public class Operation {
+//        public int firstNumber;
+//        public int secondNumber;
+//
+//        public Operation(int firstNumber, int secondNumber) {
+//            this.firstNumber = firstNumber;
+//            this.secondNumber = secondNumber;
+//        }
+//
+
+
+
 
     public void goToSecondActivity(View view) {
         ageValidate();
@@ -58,6 +105,18 @@ public class MainActivity extends AppCompatActivity  {
         intent.putExtra(Constants.KEY_OCCUPATION2, editTextOcc2.getText().toString());
         intent.putExtra(Constants.KEY_AGE, calculateAge());
         startActivity(intent);
+
+
+
+
+
+
+
+        Bundle bundle = new Bundle();
+        bundle.putString("params", "My String data");
+// set MyFragment Arguments
+        FragmentA myObj = new FragmentA();
+        myObj.setArguments(bundle);
     }
 
 
