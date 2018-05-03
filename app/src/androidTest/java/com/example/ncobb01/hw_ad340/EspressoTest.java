@@ -84,7 +84,7 @@ public class EspressoTest {
                 .perform(typeText("I like sun.")).perform(closeSoftKeyboard());
         //Thread.sleep(250);
 
-        onView(withId(R.id.secondActivityBtn)).perform(click());
+        onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
 
     //onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
 
