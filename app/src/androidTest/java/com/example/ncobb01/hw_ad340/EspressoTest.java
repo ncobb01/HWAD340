@@ -27,7 +27,8 @@ import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard
 
 import android.widget.DatePicker;
 import android.widget.TimePicker;
-
+import static android.support.test.espresso.action.ViewActions.swipeLeft;
+import static android.support.test.espresso.action.ViewActions.swipeRight;
 
 import android.support.test.espresso.contrib.PickerActions;
 import android.support.test.rule.ActivityTestRule;
@@ -136,11 +137,46 @@ public class EspressoTest {
 
         onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
 
+
+
+
+
+        onView(withId(R.id.tab_layout))
+                .perform(click())
+                .check(matches(isDisplayed()));
+
+
+
     }
 
+    public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
+
+        onView(withId(datePickerLaunchViewId)).perform(click());
+
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
+
+
+
+    }
+
+   @Test
+    public void entryExample2() {
+setDate(R.id.dp, 1989, 8, 1);
+
+//       onView(withId(R.id.dp))
+//               .check(matches(matchesDate(1989, 8, 1);
+//       onView(withId(R.id.dp)).check(matches(matchesDate(1989, 8, 1)));
+       onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
+
+   }
+
+
+
+
 //    @Test
-//    public void entryExample2() {
-//
+//    public void swipePage() {
+//        onView(withId(R.id.pager))
+//                .check(matches(isDisplayed()));
 //    }
     //
 //    public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
