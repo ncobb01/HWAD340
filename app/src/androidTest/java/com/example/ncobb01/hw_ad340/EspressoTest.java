@@ -231,7 +231,19 @@ public class EspressoTest {
         }
     }
 
+    @Test
+    public void canGoToSecondActivityWithMessage4() {
+        onView(withId(R.id.occupationEditText)).perform(typeText("Student"), closeSoftKeyboard());
 
+        try {
+            Intents.init();
+            onView(withId(R.id.secondActivityBtn)).perform(scrollTo(), click());
+            intended(hasComponent(ConfirmationPage.class.getName()));
+            intended(hasExtra(Constants.KEY_OCCUPATION, "Student"));
+        } finally {
+            Intents.release();
+        }
+    }
 }
 
 
