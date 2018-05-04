@@ -63,79 +63,92 @@ public class EspressoTest {
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
-    public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
-
-        onView(withId(datePickerLaunchViewId)).perform(click());
-
-        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
-
-        onView(withId(android.R.id.button1)).perform(click());
-
-    }
-
-    //it changed damn you android studio
-    @Test
-    public void testtextandforms() {
-        onView(withText("Click to see your profile!")).perform(click());
-
-        onView(withId(R.id.nameEditText))
-                .perform(typeText("Nathan"), closeSoftKeyboard());
-        onView(withId(R.id.occupationEditText))
-                .perform(typeText("Student"), closeSoftKeyboard());
-        onView(withId(R.id.occupation2EditText))
-                .perform(typeText("I like the sun."), closeSoftKeyboard());
-
-
-        setDate(R.id.dp, 1989, 8, 1);
-
-        onView(withText("Click to see your profile!")).perform(click());
-
-        onView(withId(R.id.nameEditText))
-                .check(matches(withText("Nathan")));
-        onView(withId(R.id.occupationEditText))
-                .check(matches(withText("Student")));
-        onView(withId(R.id.occupation2EditText))
-                .check(matches(withText("I like the sun.")));
-        onView(withId(R.id.dp))
-                .check(matches(withText("28")));
-
-
-    }
-
-}
-//    @Test
-//    public void mainActivityTest0() {
-//        onView(withId(R.id.form_birthSpin)).check(matches(withText(R.string.please_select_your_birthdate)));
+//    public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
+//
+//        onView(withId(datePickerLaunchViewId)).perform(click());
+//
+//        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
+//
+//        onView(withId(android.R.id.button1)).perform(click());
+//
 //    }
 //
+//    //it changed damn you android studio
 //    @Test
-//    public void mainActivityTest() {
-//        onView(withId(R.id.assignInfo)).check(matches(withText(R.string.nathan_cobb_4_30_18)));
-//    }
-//
-//    @Test
-//    public void mainActivityTest2() {
-//        onView(withId(R.id.secondActivityBtn)).check(matches(withText(R.string.click_to_see_your_profile)));
-//    }
-//
-//
-//    @Test
-//    public void entryExample() {
+//    public void formfillout() {
+//        onView(withText("Click to see your profile!")).perform(scrollTo(),click());
 //
 //        onView(withId(R.id.nameEditText))
-//                .perform(typeText("Nathan Cobb"), closeSoftKeyboard());
-//        onView(withId(R.id.nameEditText)).check(matches(withText("Nathan Cobb")));
-//    }
+//                .perform(typeText("Nathan"), closeSoftKeyboard());
+//        onView(withId(R.id.occupationEditText))
+//                .perform(typeText("Student"), closeSoftKeyboard());
+//        onView(withId(R.id.occupation2EditText))
+//                .perform(typeText("I like the sun."), closeSoftKeyboard());
 //
-//    //
+//
+//        setDate(R.id.dp, 1989, 8, 1);
+//
+//        onView(withText("Click to see your profile!")).perform(click());
+//
+//        onView(withId(R.id.nameEditText))
+//                .check(matches(withText("Nathan")));
+//        onView(withId(R.id.occupationEditText))
+//                .check(matches(withText("Student")));
+//        onView(withId(R.id.occupation2EditText))
+//                .check(matches(withText("I like the sun.")));
+//        onView(withId(R.id.dp))
+//                .check(matches(withText("28")));
+//
+//
+//    }
+
+
+    @Test
+    public void mainActivityTest0() {
+        onView(withId(R.id.form_birthSpin)).check(matches(withText(R.string.please_select_your_birthdate)));
+    }
+
+    @Test
+    public void mainActivityTest() {
+        onView(withId(R.id.assignInfo)).check(matches(withText(R.string.nathan_cobb_4_30_18)));
+    }
+
+    @Test
+    public void mainActivityTest2() {
+        onView(withId(R.id.secondActivityBtn)).check(matches(withText(R.string.click_to_see_your_profile)));
+    }
+
+
+    @Test
+    public void entryExample() {
+
+        onView(withId(R.id.nameEditText))
+                .perform(typeText("Nathan Cobb"), closeSoftKeyboard());
+        onView(withId(R.id.nameEditText)).check(matches(withText("Nathan Cobb")));
+
+        onView(withId(R.id.occupationEditText))
+                .perform(typeText("Student"), closeSoftKeyboard());
+        onView(withId(R.id.occupationEditText)).check(matches(withText("Student")));
+
+
+
+    }
+
+//    @Test
+//    public void entryExample2() {
+//        onView(withId(R.id.occupation2EditText))
+//                .perform(typeText("Sun"), closeSoftKeyboard());
+//        onView(withId(R.id.occupationEditText)).check(matches(withText("Sun")));
+//    }
+    //
 //    public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
 //        onView(withId(datePickerLaunchViewId)).perform(click());
 //        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
 //
 //        setDate(R.id.dp, 1999, 1, 1);
-//        onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
+//        onView(withId(R.id.secondActivityBtn)).perform(scrollTo(), click());
 //    }
-//
+}
 //
 //
 //
