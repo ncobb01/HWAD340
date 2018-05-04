@@ -130,15 +130,17 @@ public class EspressoTest {
                 .perform(typeText("Student"), closeSoftKeyboard());
         onView(withId(R.id.occupationEditText)).check(matches(withText("Student")));
 
+        onView(withId(R.id.occupation2EditText))
+                .perform(typeText("Sun"), closeSoftKeyboard());
+        onView(withId(R.id.occupation2EditText)).check(matches(withText("Sun")));
+
         onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
 
     }
 
 //    @Test
 //    public void entryExample2() {
-//        onView(withId(R.id.occupation2EditText))
-//                .perform(typeText("Sun"), closeSoftKeyboard());
-//        onView(withId(R.id.occupationEditText)).check(matches(withText("Sun")));
+//
 //    }
     //
 //    public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
