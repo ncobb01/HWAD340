@@ -4,7 +4,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/eiffel"
+    android:background="@drawable/back2"
 
     android:weightSum="4">
 
@@ -33,7 +33,7 @@
         android:layout_marginEnd="10dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:textColor="#F5F5F5"
+        android:textColor="#000000"
         android:textSize="25sp"
         android:layout_marginTop="18dp"
         android:layout_marginBottom="50dp"
