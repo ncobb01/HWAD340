@@ -17,6 +17,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+
+
 public class ConfirmationPage extends AppCompatActivity {
     private static final String TAG = ConfirmationPage.class.getSimpleName();
     @Override
@@ -41,6 +43,9 @@ public class ConfirmationPage extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
+
+
+
 
         assert b != null;
         if (b.containsKey(Constants.KEY_NAME)) {
@@ -72,9 +77,18 @@ public class ConfirmationPage extends AppCompatActivity {
 
 
 
-
-
-
+//        FragmentManager manager = getSupportFragmentManager();
+//        Fragment f = manager.findFragmentById(R.id.fragA);
+//        // here
+//
+//
+//        assert  f != null;
+//
+//        if(f != null ) {
+//        //FragmentA fa = (FragmentA) f;
+//        //fa.onNotificationListener.updateUI();
+//            f.setArguments(b);
+    //}
 
         Log.i(TAG, "onCreate()");
 

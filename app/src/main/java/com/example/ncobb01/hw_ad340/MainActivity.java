@@ -64,7 +64,11 @@ public class MainActivity extends AppCompatActivity  {
     public void goToSecondActivity(View view) {
         ageValidate();
 
-
+//        Bundle bundle = new Bundle();
+//        bundle.putString("edttext", "From Activity");
+//
+//        FragmentA fragobj = new Fragmentclass();
+//        fragobj.setArguments(bundle);
 
         Intent intent = new Intent(MainActivity.this, ConfirmationPage.class);
         intent.putExtra(Constants.KEY_NAME, editTextName.getText().toString());

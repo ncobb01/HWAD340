@@ -3,7 +3,8 @@ package com.example.ncobb01.hw_ad340;
 
 import android.support.v4.app.Fragment;
 import android.content.Intent;
-
+import android.widget.EditText;
+import android.widget.TextView;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -57,8 +58,22 @@ public class FragmentA extends Fragment {
 
 
        View view = inflater.inflate(R.layout.fragment_a, container, false);
-        TextView output1= (TextView)view.findViewById(R.id.msg1);
-        output1.setText("Fragment One");
+
+Bundle extras = getActivity().getIntent().getExtras();
+String message = extras.getString(Constants.KEY_NAME);
+        Integer message2 = extras.getInt(Constants.KEY_AGE);
+        String message3 = extras.getString(Constants.KEY_OCCUPATION);
+        String message4 = extras.getString(Constants.KEY_OCCUPATION2);
+        TextView textViewTab1 = view.findViewById(R.id.msg1);
+textViewTab1.setText(message + ("\n") + ("\n") + message2  + ("\n") + message3 + ("\n") + message4);
+
+
+//        String strtext = getArguments().getString(Constants.KEY_NAME);
+//        //return inflater.inflate(R.layout.fragment, container, false);
+//
+//
+//        TextView output1= (TextView)view.findViewById(R.id.msg1);
+//        output1.setText(strtext);
 
 //        View view2 = inflater.inflate(R.layout.fragment_a, container, false);
 //        TextView output2= (TextView)view2.findViewById(R.id.msg2);

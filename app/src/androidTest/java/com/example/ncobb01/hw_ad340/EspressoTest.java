@@ -67,6 +67,7 @@ public class EspressoTest {
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
 
         setDate(R.id.dp, 1999, 1, 1);
+        onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
     }
 
 
@@ -90,8 +91,13 @@ public class EspressoTest {
 
         }
 
-
-
+//
+////    public void clickOnTab() {
+//        Matcher<View> matcher = allOf(withText("Matches"),
+//                isDescendantOfA(withId(R.id.customTab)));
+//        onView(matcher).perform(click());
+//        SystemClock.sleep(800); // Wait a little until the content is loaded
+//    }
 }
 //        onView(withId(R.id.occupationEditText)).perform(typeText("Office Manager"), closeSoftKeyboard());
 //
