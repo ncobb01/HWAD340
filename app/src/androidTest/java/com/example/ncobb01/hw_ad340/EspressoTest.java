@@ -130,7 +130,7 @@ public class EspressoTest {
                 .perform(typeText("Student"), closeSoftKeyboard());
         onView(withId(R.id.occupationEditText)).check(matches(withText("Student")));
 
-
+        onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
 
     }
 
