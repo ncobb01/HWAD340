@@ -119,9 +119,12 @@ package com.example.ncobb01.hw_ad340;
 
 
 
-
+import static android.support.test.espresso.intent.Intents.intended;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExtra;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
-
+import android.support.test.espresso.intent.Intents;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -192,11 +195,6 @@ public class EspressoTest {
 
 
 
-//        onView(withId(R.id.tab_layout))
-//                .perform(click())
-//                .check(matches(isDisplayed()));
-
-
     }
 
     public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
@@ -219,6 +217,19 @@ public class EspressoTest {
 
 
 
+    @Test
+    public void canGoToSecondActivityWithMessage3() {
+        onView(withId(R.id.occupation2EditText)).perform(typeText("I like long walks on the beach."), closeSoftKeyboard());
+
+        try {
+            Intents.init();
+            onView(withId(R.id.secondActivityBtn)).perform(scrollTo(), click());
+            intended(hasComponent(ConfirmationPage.class.getName()));
+            intended(hasExtra(Constants.KEY_OCCUPATION2, "I like long walks on the beach."));
+        } finally {
+            Intents.release();
+        }
+    }
 
 
 }
