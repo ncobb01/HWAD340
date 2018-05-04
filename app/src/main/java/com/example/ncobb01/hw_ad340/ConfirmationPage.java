@@ -50,19 +50,19 @@ public class ConfirmationPage extends AppCompatActivity {
         assert b != null;
         if (b.containsKey(Constants.KEY_NAME)) {
             String name = b.getString(Constants.KEY_NAME);
-            //msg.append(name).append("\n");
+
             Log.i(TAG, "Name: " + name);
         }
 
         if (b.containsKey(Constants.KEY_OCCUPATION)) {
             String occupation = b.getString(Constants.KEY_OCCUPATION);
-           // msg.append(occupation).append("\n");
+
             Log.i(TAG, "Occupation: " + occupation);
         }
 
         if (b.containsKey(Constants.KEY_AGE)) {
             int age = b.getInt(Constants.KEY_AGE);
-           // msg.append(age).append(" years old \n\n");
+
             Log.i(TAG, "Age: " + age);
         }
 
@@ -70,34 +70,15 @@ public class ConfirmationPage extends AppCompatActivity {
 
         if (b.containsKey(Constants.KEY_OCCUPATION2)) {
             String occupation2 = b.getString(Constants.KEY_OCCUPATION2);
-           // msg.append(occupation2).append("\n");
+
             Log.i(TAG, "Occupation2: " + occupation2);
         }
 
 
 
 
-//        FragmentManager manager = getSupportFragmentManager();
-//        Fragment f = manager.findFragmentById(R.id.fragA);
-//        // here
-//
-//
-//        assert  f != null;
-//
-//        if(f != null ) {
-//        //FragmentA fa = (FragmentA) f;
-//        //fa.onNotificationListener.updateUI();
-//            f.setArguments(b);
-    //}
 
         Log.i(TAG, "onCreate()");
-
-
-
-
-
-
-
 
 
 

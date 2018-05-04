@@ -30,9 +30,6 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,15 +44,8 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-
-
-
         Log.i(TAG, "onCreate()");
     }
-
-
-
-
 
 
 
@@ -64,11 +54,6 @@ public class MainActivity extends AppCompatActivity  {
     public void goToSecondActivity(View view) {
         ageValidate();
 
-//        Bundle bundle = new Bundle();
-//        bundle.putString("edttext", "From Activity");
-//
-//        FragmentA fragobj = new Fragmentclass();
-//        fragobj.setArguments(bundle);
 
         Intent intent = new Intent(MainActivity.this, ConfirmationPage.class);
         intent.putExtra(Constants.KEY_NAME, editTextName.getText().toString());
@@ -78,8 +63,6 @@ public class MainActivity extends AppCompatActivity  {
         intent.putExtra(Constants.KEY_OCCUPATION2, editTextOcc2.getText().toString());
         intent.putExtra(Constants.KEY_AGE, calculateAge());
         startActivity(intent);
-
-
 
     }
 

@@ -39,12 +39,7 @@ public class FragmentA extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-
-
     }
-
-
-
 
 
 
@@ -67,26 +62,6 @@ String message = extras.getString(Constants.KEY_NAME);
         TextView textViewTab1 = view.findViewById(R.id.msg1);
 textViewTab1.setText(message + ("\n") + ("\n") + message2  + ("\n") + message3 + ("\n") + message4);
 
-
-//        String strtext = getArguments().getString(Constants.KEY_NAME);
-//        //return inflater.inflate(R.layout.fragment, container, false);
-//
-//
-//        TextView output1= (TextView)view.findViewById(R.id.msg1);
-//        output1.setText(strtext);
-
-//        View view2 = inflater.inflate(R.layout.fragment_a, container, false);
-//        TextView output2= (TextView)view2.findViewById(R.id.msg2);
-//
-//        TextView output3= (TextView)view.findViewById(R.id.msg3);
-//
-//        TextView output4= (TextView)view.findViewById(R.id.msg4);
-//
-//
-//        output2.setText("Test1");
-//
-//        output3.setText("Test2");
-//        output4.setText("Test3");
 
         return view;
 
