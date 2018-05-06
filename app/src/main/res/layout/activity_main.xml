@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="15sp"
-            android:text="@string/nathan_cobb_4_30_18"/>
+            android:text="@string/nathan_cobb_5_6_18"/>
         <!--tools:layout_editor_absoluteX="83dp"-->
         <!--tools:layout_editor_absoluteY="50dp" />-->
 

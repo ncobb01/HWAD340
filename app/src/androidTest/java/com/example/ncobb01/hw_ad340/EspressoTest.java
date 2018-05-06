@@ -44,7 +44,7 @@ public class EspressoTest {
 
     @Test
     public void mainActivityTest() {
-        onView(withId(R.id.assignInfo)).check(matches(withText(R.string.nathan_cobb_4_30_18)));
+        onView(withId(R.id.assignInfo)).check(matches(withText(R.string.nathan_cobb_5_6_18)));
     }
 
     @Test
