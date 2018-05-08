@@ -66,7 +66,7 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
         mResource = resource;
 
         //sets up the image loader library
-      setupImageLoader();
+        setupImageLoader();
     }
 
     @NonNull
@@ -124,24 +124,42 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
                     .showImageOnFail(defaultImage)
                     .showImageOnLoading(defaultImage).build();
 
-            //download and display image from url
+
+
+
+
+
+
+
+
+
+
+
+//            //download and display image from url
             imageLoader.displayImage(imgUrl, holder.image, options,new ImageLoadingListener() {
                 @Override
                 public void onLoadingStarted(String imageUri, View view) {
-                    holder.dialog.setVisibility(View.VISIBLE);
+                  //  holder.dialog.setVisibility(View.VISIBLE);
                 }
                 @Override
                 public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-                    holder.dialog.setVisibility(View.GONE);
+                  //  holder.dialog.setVisibility(View.GONE);
                 }
                 @Override
                 public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                    holder.dialog.setVisibility(View.GONE);
+                    //holder.dialog.setVisibility(View.GONE);
                 }
                 @Override
                 public void onLoadingCancelled(String imageUri, View view) {
 
                 }}
+
+
+
+
+
+
+
             );
 
 

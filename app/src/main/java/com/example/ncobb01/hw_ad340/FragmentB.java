@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 
 public class FragmentB extends Fragment {
-   private static final String TAG = "Tab2Fragment";
+   private static final String TAG = "FragmentB";
 
     private ListView mListView;
 
