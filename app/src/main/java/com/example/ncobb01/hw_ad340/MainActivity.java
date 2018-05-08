@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-    public void goToSecondActivity(View view) {
+    public void goToSecondActivity(View view) throws InterruptedException{
         ageValidate();
 
 
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
-    public void ageValidate(){
+    public void ageValidate() throws InterruptedException{
 
         DatePicker datePicker = (DatePicker) findViewById(R.id.dp);
 
@@ -126,7 +126,9 @@ public class MainActivity extends AppCompatActivity  {
 
         if (age < 18) {
 
-            Toast.makeText(this, "Users should be 18 years old", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Users should be 18 years old.", Toast.LENGTH_SHORT).show();
+            //Thread.sleep(3000);
+           // System.exit(0);
 
 
         }
