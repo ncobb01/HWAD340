@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
+import android.widget.Toast;
 
 
 public class ConfirmationPage extends AppCompatActivity {
@@ -82,8 +82,9 @@ public class ConfirmationPage extends AppCompatActivity {
 
 
 
-    }
 
+
+    }
     public class SectionPagerAdapter extends FragmentPagerAdapter {
 
         public SectionPagerAdapter(FragmentManager fm) {

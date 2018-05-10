@@ -7,7 +7,8 @@ import android.widget.ArrayAdapter;
  * Created by User on 4/17/2017.
  */
 
-
+import android.content.Context;
+import android.widget.Toast;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -20,7 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-//
+import android.widget.Button;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -37,7 +38,12 @@ import java.util.List;
  * Created by User on 4/4/2017.
  */
 
+
+
 public class CustomListAdapter  extends ArrayAdapter<Card> {
+
+
+
 
     private static final String TAG = "CustomListAdapter";
 
@@ -51,8 +57,22 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
     private static class ViewHolder {
         TextView title;
         ImageView image;
-        ProgressBar dialog;
+
+
+
+
+        Button likeButton;
+
+
+
+       // Button btnButton1;
+
+
+
+        //ProgressBar dialog;
     }
+
+
 
     /**
      * Default constructor for the PersonListAdapter
@@ -78,7 +98,7 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
         String imgUrl = getItem(position).getImgURL();
 
 
-        try{
+//        try{
 
 
             //create the view result for showing the animation
@@ -87,7 +107,21 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
             //ViewHolder object
             final ViewHolder holder;
 
-            if(convertView == null){
+            //              holder.likeButton.setOnClickListener(new View.OnClickListener() {
+//
+//
+//                    @Override
+//                    public void onClick(View v) {
+//                        Context context = v.getContext();
+//                        CharSequence text = "You Liked " +
+//                                new StringBuilder().append(holder.title.getText()).append("!").toString();
+//                        int duration = Toast.LENGTH_SHORT;
+//
+//                        Toast toast = Toast.makeText(mContext, text, duration);
+//                        toast.show();
+
+
+           // if(convertView == null){
                 LayoutInflater inflater = LayoutInflater.from(mContext);
                 convertView = inflater.inflate(mResource, parent, false);
                 holder= new ViewHolder();
@@ -95,14 +129,40 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
                 holder.image = (ImageView) convertView.findViewById(R.id.cardImage);
                 //holder.dialog = (ProgressBar) convertView.findViewById(R.id.cardProgressDialog);
 
+holder.likeButton = (Button) convertView.findViewById(R.id.action_button1);
+
+//
+
+
+
+
+
+
+
+
+//
+//              holder.likeButton.setOnClickListener(new View.OnClickListener() {
+//
+//
+//                    @Override
+//                    public void onClick(View v) {
+//                        Context context = v.getContext();
+//                        CharSequence text = "You Liked " +
+//                                new StringBuilder().append(holder.title.getText()).append("!").toString();
+//                        int duration = Toast.LENGTH_SHORT;
+//
+//                        Toast toast = Toast.makeText(mContext, text, duration);
+//                        toast.show();
+
+
                 result = convertView;
 
                 convertView.setTag(holder);
-            }
-            else{
-                holder = (ViewHolder) convertView.getTag();
-                result = convertView;
-            }
+//            }
+//            else{
+//                holder = (ViewHolder) convertView.getTag();
+//                result = convertView;
+//            }
 
 
 //            Animation animation = AnimationUtils.loadAnimation(mContext,
@@ -112,8 +172,23 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
 
             holder.title.setText(title);
 
+//        holder.likeButton.setOnClickListener(new View.OnClickListener() {
+////
+////
+//@Override
+//public void onClick(View v) {
+//    Context context = v.getContext();
+//    CharSequence text = "You Liked " +
+//            new StringBuilder().append(holder.title.getText()).append("!").toString();
+//    int duration = Toast.LENGTH_SHORT;
+//
+//    Toast toast = Toast.makeText(mContext, text, duration);
+//    toast.show();
 
-            ImageLoader imageLoader = ImageLoader.getInstance();
+
+
+
+    ImageLoader imageLoader = ImageLoader.getInstance();
 //
             int defaultImage = mContext.getResources().getIdentifier("@drawable/image_failed",null,mContext.getPackageName());
 //
@@ -137,6 +212,12 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
 
 //            //download and display image from url
             imageLoader.displayImage(imgUrl, holder.image, options,new ImageLoadingListener() {
+
+
+
+
+
+
                 @Override
                 public void onLoadingStarted(String imageUri, View view) {
                   //  holder.dialog.setVisibility(View.VISIBLE);
@@ -152,7 +233,11 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
                 @Override
                 public void onLoadingCancelled(String imageUri, View view) {
 
-                }}
+                }
+
+
+
+            }
 
 
 
@@ -162,12 +247,40 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
 
             );
 
+//
+//        }catch (IllegalArgumentException e) {
+//            Log.e(TAG, "getView: IllegalArgumentException: " + e.getMessage());
+////            return convertView;
+//        }
 
-            return convertView;
-        }catch (IllegalArgumentException e){
-            Log.e(TAG, "getView: IllegalArgumentException: " + e.getMessage() );
-            return convertView;
-        }
+
+//        holder.likeButton = (Button) convertView.findViewById(R.id.action_button);
+//            holder.likeButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                }
+//            });
+//
+//
+//                    Context context = v.getContext();
+//                    CharSequence text = "You Liked " +
+//                            new StringBuilder().append(holder.title.getText()).append("!").toString();
+//                    int duration = Toast.LENGTH_SHORT;
+//
+//                    Toast toast = Toast.makeText(mContext, text, duration);
+//                    toast.show();
+
+
+//
+//
+//        }catch (IllegalArgumentException e){
+//            Log.e(TAG, "getView: IllegalArgumentException: " + e.getMessage() );
+
+
+
+
+        return convertView;
 
     }
 
@@ -190,4 +303,41 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP
     }
+
+
+
+//
+//    public void getName(View view){
+//        Log.v("appTag","BUTTON WAS PRESSED");
+//        TextView textFromCard = view.findViewById(R.id.cardTitle);
+//        String textFromTextView = textFromCard.getText().toString();
+//        Toast.makeText(context(),"You've liked cust list adaptator" + textFromTextView, Toast.LENGTH_LONG ).show();
+//    }
+
+//    public void onClickLike (View v) {
+//        TextView textFromCard = v.findViewById(R.id.cardTitle);
+//        String textFromTextView = textFromCard.getText().toString();
+//        Toast.makeText(getContext(),"You've liked cust list adaptator" + textFromTextView, Toast.LENGTH_LONG ).show();
+////    }
+
+
+
+//
+//
+
+//                    public void onClickLike(View v) {
+//
+//                        final ViewHolder holder2;
+//                    }
+//                  holder2.likeButton.setOnClickListener(new View.OnClickListener() {
+//                        Context context = v.getContext();
+//                        CharSequence text = "You Liked " +
+//                                new StringBuilder().append(holder.title.getText()).append("!").toString();
+//                        int duration = Toast.LENGTH_SHORT;
+//
+//                        Toast toast = Toast.makeText(mContext, text, duration);
+//                        toast.show();
+//
+//
+
 }

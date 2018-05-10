@@ -42,12 +42,18 @@
                 android:layout_height="match_parent" />
 
             <Button
-                android:id="@+id/action_button"
+                android:id="@+id/action_button1"
                 style="android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Like"
-                android:textColor="?attr/colorPrimary" />
+                android:text="Like card lay"
+
+                android:textColor="?attr/colorPrimary"
+
+
+
+
+                />
 
 
 
