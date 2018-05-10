@@ -2,11 +2,6 @@ package com.example.ncobb01.hw_ad340;
 
 import android.graphics.Bitmap;
 import android.widget.ArrayAdapter;
-
-/**
- * Created by User on 4/17/2017.
- */
-
 import android.content.Context;
 import android.widget.Toast;
 import android.content.Context;
@@ -30,19 +25,13 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by User on 4/4/2017.
- */
 
 
 
 public class CustomListAdapter  extends ArrayAdapter<Card> {
-
-
 
 
     private static final String TAG = "CustomListAdapter";
@@ -51,41 +40,22 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
     private int mResource;
     private int lastPosition = -1;
 
-    /**
-     * Holds variables in a View
-     */
+
     private static class ViewHolder {
         TextView title;
         ImageView image;
 
 
-
-
         Button likeButton;
 
-
-
-       // Button btnButton1;
-
-
-
-        //ProgressBar dialog;
     }
 
 
-
-    /**
-     * Default constructor for the PersonListAdapter
-     * @param context
-     * @param resource
-     * @param objects
-     */
     public CustomListAdapter(Context context, int resource, ArrayList<Card> objects) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
 
-        //sets up the image loader library
         setupImageLoader();
     }
 
@@ -93,202 +63,95 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        //get the persons information
         String title = getItem(position).getTitle();
         String imgUrl = getItem(position).getImgURL();
 
 
-//        try{
+        final View result;
+
+        final ViewHolder holder;
 
 
-            //create the view result for showing the animation
-            final View result;
-
-            //ViewHolder object
-            final ViewHolder holder;
-
-            //              holder.likeButton.setOnClickListener(new View.OnClickListener() {
-//
+        //      holder.likeButton = (Button) convertView.findViewById(R.id.action_button1);
+        //              holder.likeButton.setOnClickListener(new View.OnClickListener() {
 //
 //                    @Override
 //                    public void onClick(View v) {
 //                        Context context = v.getContext();
-//                        CharSequence text = "You Liked " +
-//                                new StringBuilder().append(holder.title.getText()).append("!").toString();
+//                        CharSequence text = "You've liked " +
+//                                new StringBuilder().append(holder.title.getText()).append(" :)").toString();
 //                        int duration = Toast.LENGTH_SHORT;
 //
 //                        Toast toast = Toast.makeText(mContext, text, duration);
 //                        toast.show();
 
 
-           // if(convertView == null){
-                LayoutInflater inflater = LayoutInflater.from(mContext);
-                convertView = inflater.inflate(mResource, parent, false);
-                holder= new ViewHolder();
-                holder.title = (TextView) convertView.findViewById(R.id.cardTitle);
-                holder.image = (ImageView) convertView.findViewById(R.id.cardImage);
-                //holder.dialog = (ProgressBar) convertView.findViewById(R.id.cardProgressDialog);
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+        convertView = inflater.inflate(mResource, parent, false);
+        holder = new ViewHolder();
+        holder.title = (TextView) convertView.findViewById(R.id.cardTitle);
+        holder.image = (ImageView) convertView.findViewById(R.id.cardImage);
 
-holder.likeButton = (Button) convertView.findViewById(R.id.action_button1);
 
+        result = convertView;
+
+        convertView.setTag(holder);
+//
+        lastPosition = position;
+
+        holder.title.setText(title);
+
+
+        ImageLoader imageLoader = ImageLoader.getInstance();
+//
+        int defaultImage = mContext.getResources().getIdentifier("@drawable/image_failed", null, mContext.getPackageName());
 //
 
+        DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true)
+                .cacheOnDisc(true).resetViewBeforeLoading(true)
+                .showImageForEmptyUri(defaultImage)
+                .showImageOnFail(defaultImage)
+                .showImageOnLoading(defaultImage).build();
 
 
+        imageLoader.displayImage(imgUrl, holder.image, options, new ImageLoadingListener() {
 
 
+                    @Override
+                    public void onLoadingStarted(String imageUri, View view) {
+                        //  holder.dialog.setVisibility(View.VISIBLE);
+                    }
 
+                    @Override
+                    public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+                        //  holder.dialog.setVisibility(View.GONE);
+                    }
 
+                    @Override
+                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                        //holder.dialog.setVisibility(View.GONE);
+                    }
 
-//
-//              holder.likeButton.setOnClickListener(new View.OnClickListener() {
-//
-//
-//                    @Override
-//                    public void onClick(View v) {
-//                        Context context = v.getContext();
-//                        CharSequence text = "You Liked " +
-//                                new StringBuilder().append(holder.title.getText()).append("!").toString();
-//                        int duration = Toast.LENGTH_SHORT;
-//
-//                        Toast toast = Toast.makeText(mContext, text, duration);
-//                        toast.show();
+                    @Override
+                    public void onLoadingCancelled(String imageUri, View view) {
 
+                    }
 
-                result = convertView;
-
-                convertView.setTag(holder);
-//            }
-//            else{
-//                holder = (ViewHolder) convertView.getTag();
-//                result = convertView;
-//            }
-
-
-//            Animation animation = AnimationUtils.loadAnimation(mContext,
-//                    (position > lastPosition) ? R.anim.load_down_anim : R.anim.load_up_anim);
-//            result.startAnimation(animation);
-            lastPosition = position;
-
-            holder.title.setText(title);
-
-//        holder.likeButton.setOnClickListener(new View.OnClickListener() {
-////
-////
-//@Override
-//public void onClick(View v) {
-//    Context context = v.getContext();
-//    CharSequence text = "You Liked " +
-//            new StringBuilder().append(holder.title.getText()).append("!").toString();
-//    int duration = Toast.LENGTH_SHORT;
-//
-//    Toast toast = Toast.makeText(mContext, text, duration);
-//    toast.show();
-
-
-
-
-    ImageLoader imageLoader = ImageLoader.getInstance();
-//
-            int defaultImage = mContext.getResources().getIdentifier("@drawable/image_failed",null,mContext.getPackageName());
-//
-            //create display options
-            DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true)
-                    .cacheOnDisc(true).resetViewBeforeLoading(true)
-                    .showImageForEmptyUri(defaultImage)
-                    .showImageOnFail(defaultImage)
-                    .showImageOnLoading(defaultImage).build();
-
-
-
-
-
-
-
-
-
-
-
-
-//            //download and display image from url
-            imageLoader.displayImage(imgUrl, holder.image, options,new ImageLoadingListener() {
-
-
-
-
-
-
-                @Override
-                public void onLoadingStarted(String imageUri, View view) {
-                  //  holder.dialog.setVisibility(View.VISIBLE);
-                }
-                @Override
-                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-                  //  holder.dialog.setVisibility(View.GONE);
-                }
-                @Override
-                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                    //holder.dialog.setVisibility(View.GONE);
-                }
-                @Override
-                public void onLoadingCancelled(String imageUri, View view) {
 
                 }
 
 
-
-            }
-
-
-
-
-
-
-
-            );
-
-//
-//        }catch (IllegalArgumentException e) {
-//            Log.e(TAG, "getView: IllegalArgumentException: " + e.getMessage());
-////            return convertView;
-//        }
-
-
-//        holder.likeButton = (Button) convertView.findViewById(R.id.action_button);
-//            holder.likeButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                }
-//            });
-//
-//
-//                    Context context = v.getContext();
-//                    CharSequence text = "You Liked " +
-//                            new StringBuilder().append(holder.title.getText()).append("!").toString();
-//                    int duration = Toast.LENGTH_SHORT;
-//
-//                    Toast toast = Toast.makeText(mContext, text, duration);
-//                    toast.show();
-
-
-//
-//
-//        }catch (IllegalArgumentException e){
-//            Log.e(TAG, "getView: IllegalArgumentException: " + e.getMessage() );
-
-
-
+        );
 
         return convertView;
 
     }
 
     /**
-     * Required for setting up the Universal Image loader Library
+     * Setup Image Loader
      */
-    private void setupImageLoader(){
-        // UNIVERSAL IMAGE LOADER SETUP
+    private void setupImageLoader() {
+
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
                 .cacheOnDisc(true).cacheInMemory(true)
                 .imageScaleType(ImageScaleType.EXACTLY)
@@ -301,43 +164,7 @@ holder.likeButton = (Button) convertView.findViewById(R.id.action_button1);
                 .discCacheSize(100 * 1024 * 1024).build();
 
         ImageLoader.getInstance().init(config);
-        // END - UNIVERSAL IMAGE LOADER SETUP
+
+
     }
-
-
-
-//
-//    public void getName(View view){
-//        Log.v("appTag","BUTTON WAS PRESSED");
-//        TextView textFromCard = view.findViewById(R.id.cardTitle);
-//        String textFromTextView = textFromCard.getText().toString();
-//        Toast.makeText(context(),"You've liked cust list adaptator" + textFromTextView, Toast.LENGTH_LONG ).show();
-//    }
-
-//    public void onClickLike (View v) {
-//        TextView textFromCard = v.findViewById(R.id.cardTitle);
-//        String textFromTextView = textFromCard.getText().toString();
-//        Toast.makeText(getContext(),"You've liked cust list adaptator" + textFromTextView, Toast.LENGTH_LONG ).show();
-////    }
-
-
-
-//
-//
-
-//                    public void onClickLike(View v) {
-//
-//                        final ViewHolder holder2;
-//                    }
-//                  holder2.likeButton.setOnClickListener(new View.OnClickListener() {
-//                        Context context = v.getContext();
-//                        CharSequence text = "You Liked " +
-//                                new StringBuilder().append(holder.title.getText()).append("!").toString();
-//                        int duration = Toast.LENGTH_SHORT;
-//
-//                        Toast toast = Toast.makeText(mContext, text, duration);
-//                        toast.show();
-//
-//
-
 }

@@ -22,7 +22,7 @@ import static java.util.Arrays.*;
 
 
 
-
+// Class may not be needed
 
     public class Matches extends Fragment {
 
@@ -39,16 +39,14 @@ import static java.util.Arrays.*;
         }
 
         public static class ViewHolder extends RecyclerView.ViewHolder {
-            public ImageView picture;
+
             public TextView name;
-           // public TextView description;
             public ImageButton likeButton;
 
             public ViewHolder(LayoutInflater inflater, ViewGroup parent) {
                 super(inflater.inflate(R.layout.card_layout_main, parent, false));
                 name = itemView.findViewById(R.id.cardImage);
-               // name = itemView.findViewById(R.id.card_title);
-                //description = itemView.findViewById(R.id.card_text);
+
                 likeButton = itemView.findViewById(R.id.action_button1);
 
                 likeButton.setOnClickListener(new View.OnClickListener() {
@@ -56,13 +54,12 @@ import static java.util.Arrays.*;
                     public void onClick(View v) {
                         Context context = v.getContext();
                         CharSequence text = "You Liked " +
-                                new StringBuilder().append(name.getText()).append("!").toString();
+                                new StringBuilder().append(name.getText()).append(" :)").toString();
                         int duration = Toast.LENGTH_SHORT;
 
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
 
-                        //likeButton.setColorFilter(ContextCompat.getColor(context, R.color.red), android.graphics.PorterDuff.Mode.SRC_IN);
                     }
 
                 });
@@ -71,22 +68,11 @@ import static java.util.Arrays.*;
         }
 
         public static class ContentAdapter extends RecyclerView.Adapter<ViewHolder> {
-            // Set numbers of List in RecyclerView.
-//            private static final int LENGTH = 18;
-//            private final String[] mMatches;
-//            //private final String[] mMatchDesc;
-//            private final Drawable[] mPlacePictures;
+
 
             public ContentAdapter(Context context) {
                 Resources resources = context.getResources();
-//                mMatches = resources.getStringArray(R.array.match);
-//               // mMatchDesc = resources.getStringArray(R.array.match_desc);
-//                TypedArray a = resources.obtainTypedArray(R.array.match_pic);
-//                mPlacePictures = new Drawable[a.length()];
-//                for (int i = 0; i < mPlacePictures.length; i++) {
-//                    mPlacePictures[i] = a.getDrawable(i);
-//                }
-//                a.recycle();
+
             }
 
             @Override
@@ -96,9 +82,7 @@ import static java.util.Arrays.*;
 
             @Override
             public void onBindViewHolder(ViewHolder holder, int position) {
-//                holder.picture.setImageDrawable(mPlacePictures[position % mPlacePictures.length]);
-//                holder.name.setText(mMatches[position % mMatches.length]);
-//              //  holder.description.setText(mMatchDesc[position % mMatchDesc.length]);
+
             }
 //
             @Override

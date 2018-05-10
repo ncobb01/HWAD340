@@ -67,9 +67,6 @@ textViewTab1.setText(message + ("\n") + ("\n") + message2  + ("\n") + message3 +
 
 
 
-
-
-
     }
 
     @Override
