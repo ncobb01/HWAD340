@@ -23,6 +23,7 @@ import android.support.test.espresso.contrib.PickerActions;
 
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 
+import android.support.v7.widget.RecyclerView;
 import android.widget.DatePicker;
 
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -75,6 +76,8 @@ public class EspressoTest {
         onView(withId(R.id.tab_layout))
                 .perform(click())
                 .check(matches(isDisplayed()));
+
+        onView(withText("Jodie")).check(matches(isDisplayed()));
 
 
     }
