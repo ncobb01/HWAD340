@@ -12,13 +12,13 @@
 
 
 
-    <Button
-        android:id="@+id/action_button"
-        style="android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Like fragb"
-        android:textColor="?attr/colorPrimary"
+    <!--<Button-->
+        <!--android:id="@+id/action_button"-->
+        <!--style="android:attr/borderlessButtonStyle"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Like fragb"-->
+        <!--android:textColor="?attr/colorPrimary"-->
 
 
 

@@ -44,10 +44,7 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
     private static class ViewHolder {
         TextView title;
         ImageView image;
-
-
         Button likeButton;
-
     }
 
 
@@ -71,9 +68,9 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
 
         final ViewHolder holder;
 
-
-        //      holder.likeButton = (Button) convertView.findViewById(R.id.action_button1);
-        //              holder.likeButton.setOnClickListener(new View.OnClickListener() {
+//
+//              holder.likeButton = (Button) convertView.findViewById(R.id.action_button1);
+//                      holder.likeButton.setOnClickListener(new View.OnClickListener() {
 //
 //                    @Override
 //                    public void onClick(View v) {
@@ -91,6 +88,17 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
         holder = new ViewHolder();
         holder.title = (TextView) convertView.findViewById(R.id.cardTitle);
         holder.image = (ImageView) convertView.findViewById(R.id.cardImage);
+
+        Button likeButton = (Button) convertView.findViewById(R.id.action_button1);
+        likeButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(mContext, "You liked: " + holder.title.getText().toString(), Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
+
+        holder.likeButton = likeButton;
 
 
         result = convertView;

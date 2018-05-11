@@ -21,18 +21,19 @@ import static org.hamcrest.core.Is.is;
 import org.hamcrest.Matchers;
 import static android.support.test.espresso.action.ViewActions.swipeRight;
 import android.support.test.espresso.contrib.PickerActions;
-
+import static android.support.test.espresso.matcher.ViewMatchers.isDescendantOfA;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
-
+import android.support.design.widget.TabLayout;
 import android.support.v7.widget.RecyclerView;
 import android.widget.DatePicker;
-
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 
 
 
 @RunWith(AndroidJUnit4.class)
 public class EspressoTest {
+    private Card mActivity;
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
@@ -76,26 +77,23 @@ public class EspressoTest {
 
         onView(withId(R.id.tab_layout))
                .perform(swipeRight()) .perform(click())
-                .check(matches(isDisplayed()));}
+                .check(matches(isDisplayed()));
 
 
-//        onView(withId(R.id.tab_layout))
-//               .perform(click())
-//       .check(matches(withText("Jodie")));
-//        onView(withText("Jodie")).check(matches(withText("Jodie")));
-
-//    }
-
-
-
-
-    public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
-
-        onView(withId(datePickerLaunchViewId)).perform(click());
-
-        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
 
     }
+
+
+
+        public static void setDate ( int datePickerLaunchViewId, int year, int monthOfYear,
+        int dayOfMonth){
+
+            onView(withId(datePickerLaunchViewId)).perform(click());
+
+            onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
+
+        }
+
 
    @Test
     public void entryExample2() {
@@ -104,6 +102,11 @@ setDate(R.id.dp, 1989, 8, 1);
        onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
 
    }
+
+
+
+
+
 
 
 }
