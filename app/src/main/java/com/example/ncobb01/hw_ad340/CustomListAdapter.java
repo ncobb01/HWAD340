@@ -68,20 +68,6 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
 
         final ViewHolder holder;
 
-//
-//              holder.likeButton = (Button) convertView.findViewById(R.id.action_button1);
-//                      holder.likeButton.setOnClickListener(new View.OnClickListener() {
-//
-//                    @Override
-//                    public void onClick(View v) {
-//                        Context context = v.getContext();
-//                        CharSequence text = "You've liked " +
-//                                new StringBuilder().append(holder.title.getText()).append(" :)").toString();
-//                        int duration = Toast.LENGTH_SHORT;
-//
-//                        Toast toast = Toast.makeText(mContext, text, duration);
-//                        toast.show();
-
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);

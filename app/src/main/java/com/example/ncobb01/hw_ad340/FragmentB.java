@@ -41,10 +41,6 @@ import android.view.View.OnClickListener;
         CustomListAdapter adapter = new CustomListAdapter(getActivity(), R.layout.card_layout_main, list);
         mListView.setAdapter(adapter);
 
-//        button = (Button) view.findViewById(R.id.action_button);
-//
-//        button.setOnClickListener(this);
-
         return view;
     }
 
