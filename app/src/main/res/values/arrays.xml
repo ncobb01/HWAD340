@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="match">
+        <item>Tom</item>
+        <item>Jodie</item>
+        <item>Shia</item>
+    </string-array>
+
+
+    <string-array name="match_pic">
+        <item>@drawable/tom</item>
+        <item>@drawable/jodie</item>
+        <item>@drawable/shia</item>
+    </string-array>
+
+</resources>

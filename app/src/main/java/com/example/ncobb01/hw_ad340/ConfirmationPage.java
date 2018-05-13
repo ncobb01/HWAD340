@@ -98,7 +98,7 @@ public class ConfirmationPage extends AppCompatActivity {
                     return new FragmentA();
                 case 1:
 
-                    return new FragmentB();
+                    return new MatchesFrag();
 
                 case 2:
                 default:
