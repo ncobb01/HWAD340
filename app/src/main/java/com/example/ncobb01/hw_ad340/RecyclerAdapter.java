@@ -15,10 +15,10 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHoder>{
 
-    List<FireModel> list;
+    List<Card> list;
     Context context;
 
-    public RecyclerAdapter(List<FireModel> list, Context context) {
+    public RecyclerAdapter(List<Card> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -26,7 +26,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHode
     @Override
     public MyHoder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.card,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.card_layout_main,parent,false);
         MyHoder myHoder = new MyHoder(view);
 
 
@@ -35,10 +35,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHode
 
     @Override
     public void onBindViewHolder(MyHoder holder, int position) {
-        FireModel mylist = list.get(position);
-        holder.name.setText(mylist.getName());
-        holder.email.setText(mylist.getEmail());
-        holder.address.setText(mylist.getAddress());
+        Card mylist = list.get(position);
+        holder.name.setText(mylist.getTitle());
+//        holder.email.setText(mylist.getEmail());
+//        holder.address.setText(mylist.getAddress());
     }
 
     @Override
@@ -75,9 +75,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHode
 
         public MyHoder(View itemView) {
             super(itemView);
-            name = (TextView) itemView.findViewById(R.id.vname);
-            email= (TextView) itemView.findViewById(R.id.vemail);
-            address= (TextView) itemView.findViewById(R.id.vaddress);
+            name = (TextView) itemView.findViewById(R.id.cardTitle);
+//            email= (TextView) itemView.findViewById(R.id.vemail);
+//            address= (TextView) itemView.findViewById(R.id.vaddress);
 
         }
     }
