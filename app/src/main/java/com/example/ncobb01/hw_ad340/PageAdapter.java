@@ -21,7 +21,7 @@ public class PageAdapter extends FragmentStatePagerAdapter {
                 FragmentA tab1 = new FragmentA();
                 return tab1;
             case 1:
-                MatchesFrag tab2 = new MatchesFrag();
+                MatchesFragOrig tab2 = new MatchesFragOrig();
                 return tab2;
             case 2:
                 FragmentC tab3 = new FragmentC();

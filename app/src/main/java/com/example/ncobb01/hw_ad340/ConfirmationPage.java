@@ -8,23 +8,39 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.widget.Toast;
+
+import android.content.Context;
 
 
-public class ConfirmationPage extends AppCompatActivity {
+import com.example.ncobb01.hw_ad340.Model.Matches;
+import com.example.ncobb01.hw_ad340.ViewModel.MatchesViewModel;
+
+
+//public class ConfirmationPage extends AppCompatActivity { 
+
+public class ConfirmationPage extends AppCompatActivity implements MatchesFrag.OnListFragmentInteractionListener{
+
     private static final String TAG = ConfirmationPage.class.getSimpleName();
+
+    private MatchesViewModel viewModel;
+
+
+
+    @Override
+    protected void onPause() {
+        viewModel.clear();
+        super.onPause();
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_confirmation_page);
+
+        viewModel = new MatchesViewModel();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -85,6 +101,21 @@ public class ConfirmationPage extends AppCompatActivity {
 
 
     }
+        @Override
+    public  void onListFragmentInteraction(Matches item) {
+        if (!item.liked) {
+            item.liked = true;
+        } else {
+            item.liked = false;
+        }
+
+        Context context = getApplicationContext();
+
+        viewModel.updateMatch(item);
+    }
+
+
+
     public class SectionPagerAdapter extends FragmentPagerAdapter {
 
         public SectionPagerAdapter(FragmentManager fm) {
@@ -112,6 +143,23 @@ public class ConfirmationPage extends AppCompatActivity {
             return 3;
         }
 
+
+
+
+
+
+
+//
+
+
+
+
+
+
+
+
+
+
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
@@ -126,6 +174,8 @@ public class ConfirmationPage extends AppCompatActivity {
                     return "Settings";
             }
         }
+
+
     }
 
 }
