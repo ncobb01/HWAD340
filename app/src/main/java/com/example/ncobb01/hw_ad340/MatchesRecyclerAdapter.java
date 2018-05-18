@@ -29,11 +29,6 @@ public class MatchesRecyclerAdapter extends RecyclerView.Adapter<MatchesRecycler
 
 
 
-
-
-
-
-
     public void updateMatchListItems(List<Matches> matches) {
 
         final MatchDiffCallback diffCallback = new MatchDiffCallback(this.mValues, matches);
@@ -49,18 +44,6 @@ public class MatchesRecyclerAdapter extends RecyclerView.Adapter<MatchesRecycler
         diffResult.dispatchUpdatesTo(this);
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -86,8 +69,8 @@ public class MatchesRecyclerAdapter extends RecyclerView.Adapter<MatchesRecycler
             return;
         }
         holder.mItem = mValues.get(position);
-        holder.mName.setText(mValues.get(position).matchId); //could be wrong
-        holder.mImgUrl = mValues.get(position).matchImageURL; // could be wrong
+        holder.mName.setText(mValues.get(position).matchId);
+        holder.mImgUrl = mValues.get(position).matchImageURL;
         Picasso.get().load(holder.mImgUrl).into(holder.mImage);
         holder.liked = mValues.get(position).liked;
 
@@ -101,10 +84,6 @@ public class MatchesRecyclerAdapter extends RecyclerView.Adapter<MatchesRecycler
             holder.likeBtn.setColorFilter(Color.GREEN);
         }
 
-//        holder.likeBtn.setOnClickListener(v -> {
-//            if (null != mListener) {
-
-//                mListener.onListFragmentInteraction(holder.mItem);
             }
         });
     }

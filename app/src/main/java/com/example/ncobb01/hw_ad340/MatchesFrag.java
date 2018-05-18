@@ -78,14 +78,6 @@ public class MatchesFrag extends Fragment {
             adapter.updateMatchListItems(matches);
 
 
-
-
-           // adapter.dispatchUpdatesTo(matches);
-
-
-
-
-            // See Slack channel for class, for article
         });
 
         return recyclerView;

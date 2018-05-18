@@ -58,10 +58,6 @@ public class MatchDiffCallback extends DiffUtil.Callback {
 
                 newItemPosition).matchId;
 
-//          return mOldMatchList.get(oldItemPosition).getId() == mNewMatchList.get(
-//
-//                newItemPosition).getId();
-
     }
 
 
@@ -76,9 +72,6 @@ public class MatchDiffCallback extends DiffUtil.Callback {
 
         return oldMatch.named.equals(newMatch.named);
 
-
-//        return oldMatch.getName().equals(newMatch.getName());
-
     }
 
 
@@ -89,7 +82,7 @@ public class MatchDiffCallback extends DiffUtil.Callback {
 
     public Object getChangePayload(int oldItemPosition, int newItemPosition) {
 
-        // Implement method if you're going to use ItemAnimator
+
 
         return super.getChangePayload(oldItemPosition, newItemPosition);
 
