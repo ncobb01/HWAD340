@@ -34,31 +34,31 @@ public class MatchesFrag extends Fragment {
 
 
 
-        // TODO: Customize parameter argument names
-        public static final String ARG_COLUMN_COUNT = "column-count";
-        public static final String ARG_DATA_SET = "data-set";
-        // TODO: Customize parameters
-        private int mColumnCount = 3;
-        private List<Matches> mDataSet;
-        private OnListFragmentInteractionListener mListener;
-        private MatchesRecyclerAdapter adapter;
+    // TODO: Customize parameter argument names
+    public static final String ARG_COLUMN_COUNT = "column-count";
+    public static final String ARG_DATA_SET = "data-set";
+    // TODO: Customize parameters
+    private int mColumnCount = 3;
+    private List<Matches> mDataSet;
+    private OnListFragmentInteractionListener mListener;
+    private MatchesRecyclerAdapter adapter;
 
-        /**
-         * Mandatory empty constructor for the fragment manager to instantiate the
-         * fragment (e.g. upon screen orientation changes).
-         */
-        public MatchesFrag() {
-        }
+    /**
+     * Mandatory empty constructor for the fragment manager to instantiate the
+     * fragment (e.g. upon screen orientation changes).
+     */
+    public MatchesFrag() {
+    }
 
-        // TODO: Customize parameter initialization
-        @SuppressWarnings("unused")
-        public static MatchesFrag newInstance(int columnCount) {
-            MatchesFrag fragment = new MatchesFrag();
-            Bundle args = new Bundle();
-            args.putInt(ARG_COLUMN_COUNT, columnCount);
-            fragment.setArguments(args);
-            return fragment;
-        }
+    // TODO: Customize parameter initialization
+    @SuppressWarnings("unused")
+    public static MatchesFrag newInstance(int columnCount) {
+        MatchesFrag fragment = new MatchesFrag();
+        Bundle args = new Bundle();
+        args.putInt(ARG_COLUMN_COUNT, columnCount);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override
@@ -72,7 +72,7 @@ public class MatchesFrag extends Fragment {
 
         MatchesViewModel viewModel = new MatchesViewModel();
         viewModel.getMatches((ArrayList<Matches> matches) -> {
-         //   adapter.update(matches);
+            //   adapter.update(matches);
 
 
             adapter.updateMatchListItems(matches);
@@ -177,6 +177,3 @@ public class MatchesFrag extends Fragment {
         void onListFragmentInteraction(Matches item);
     }
 }
-
-
-

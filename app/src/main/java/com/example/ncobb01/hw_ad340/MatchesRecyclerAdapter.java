@@ -78,11 +78,11 @@ public class MatchesRecyclerAdapter extends RecyclerView.Adapter<MatchesRecycler
         holder.likeBtn.setOnClickListener(v -> {
             if (null != mListener) {
 
-        if (!holder.liked) {
-            holder.likeBtn.setColorFilter(Color.WHITE);
-        } else {
-            holder.likeBtn.setColorFilter(Color.GREEN);
-        }
+                if (!holder.liked) {
+                    holder.likeBtn.setColorFilter(Color.WHITE);
+                } else {
+                    holder.likeBtn.setColorFilter(Color.GREEN);
+                }
 
             }
         });

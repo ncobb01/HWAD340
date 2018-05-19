@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity  {
 
             Toast.makeText(this, "Users should be 18 years old.", Toast.LENGTH_SHORT).show();
             //Thread.sleep(3000);
-           // System.exit(0);
+            // System.exit(0);
 
 
         }

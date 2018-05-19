@@ -18,7 +18,7 @@ import com.example.ncobb01.hw_ad340.Model.Matches;
 import com.example.ncobb01.hw_ad340.ViewModel.MatchesViewModel;
 
 
-//public class ConfirmationPage extends AppCompatActivity { 
+//public class ConfirmationPage extends AppCompatActivity {
 
 public class ConfirmationPage extends AppCompatActivity implements MatchesFrag.OnListFragmentInteractionListener{
 
@@ -101,7 +101,7 @@ public class ConfirmationPage extends AppCompatActivity implements MatchesFrag.O
 
 
     }
-        @Override
+    @Override
     public  void onListFragmentInteraction(Matches item) {
         if (!item.liked) {
             item.liked = true;

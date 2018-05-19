@@ -52,15 +52,15 @@ public class FragmentA extends Fragment {
 
 
 
-       View view = inflater.inflate(R.layout.fragment_a, container, false);
+        View view = inflater.inflate(R.layout.fragment_a, container, false);
 
-Bundle extras = getActivity().getIntent().getExtras();
-String message = extras.getString(Constants.KEY_NAME);
+        Bundle extras = getActivity().getIntent().getExtras();
+        String message = extras.getString(Constants.KEY_NAME);
         Integer message2 = extras.getInt(Constants.KEY_AGE);
         String message3 = extras.getString(Constants.KEY_OCCUPATION);
         String message4 = extras.getString(Constants.KEY_OCCUPATION2);
         TextView textViewTab1 = view.findViewById(R.id.msg1);
-textViewTab1.setText(message + ("\n") + ("\n") + message2  + ("\n") + message3 + ("\n") + message4);
+        textViewTab1.setText(message + ("\n") + ("\n") + message2  + ("\n") + message3 + ("\n") + message4);
 
 
         return view;
