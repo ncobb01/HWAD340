@@ -15,7 +15,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
-
+import java.lang.ref.WeakReference;
+import java.util.Objects;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -48,6 +49,30 @@ public class FragmentC extends Fragment {
 
 
 
+    }
+
+    private static class SetUserTask extends AsyncTask<Void, Void, User> {
+
+        private WeakReference<Activity> weakActivity;
+        private User user;
+
+        public SetUserTask(Activity activity, User user) {
+            weakActivity = new WeakReference<>(activity);
+            this.user = user;
+        }
+
+        @Override
+        protected User doInBackground(Void... voids) {
+            Activity activity = weakActivity.get();
+            if(activity == null) {
+                return null;
+            }
+
+            AppDatabase db = AppDatabaseSingleton.getDatabase(activity.getApplicationContext());
+
+            db.userDao().insertAll(user);
+            return user;
+        }
     }
 
     @Override
