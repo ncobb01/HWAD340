@@ -127,8 +127,6 @@ public class MainActivity extends AppCompatActivity  {
         if (age < 18) {
 
             Toast.makeText(this, "Users should be 18 years old.", Toast.LENGTH_SHORT).show();
-            //Thread.sleep(3000);
-            // System.exit(0);
 
 
         }
@@ -200,29 +198,29 @@ public class MainActivity extends AppCompatActivity  {
         outState.putString(Constants.KEY_OCCUPATION2, textView.getText().toString());
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i(TAG, "onResume()");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i(TAG, "onPause()");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.i(TAG, "onStop()");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, "onDestroy()");
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        Log.i(TAG, "onResume()");
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        Log.i(TAG, "onPause()");
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        Log.i(TAG, "onStop()");
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        Log.i(TAG, "onDestroy()");
+//    }
 
 
 

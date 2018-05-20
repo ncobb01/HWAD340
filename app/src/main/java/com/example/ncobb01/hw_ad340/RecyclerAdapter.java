@@ -37,8 +37,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHode
     public void onBindViewHolder(MyHoder holder, int position) {
         Card mylist = list.get(position);
         holder.name.setText(mylist.getTitle());
-//        holder.email.setText(mylist.getEmail());
-//        holder.address.setText(mylist.getAddress());
     }
 
     @Override
@@ -76,8 +74,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHode
         public MyHoder(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.cardTitle);
-//            email= (TextView) itemView.findViewById(R.id.vemail);
-//            address= (TextView) itemView.findViewById(R.id.vaddress);
 
         }
     }

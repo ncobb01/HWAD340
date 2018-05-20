@@ -113,17 +113,17 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
 
                     @Override
                     public void onLoadingStarted(String imageUri, View view) {
-                        //  holder.dialog.setVisibility(View.VISIBLE);
+
                     }
 
                     @Override
                     public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-                        //  holder.dialog.setVisibility(View.GONE);
+
                     }
 
                     @Override
                     public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                        //holder.dialog.setVisibility(View.GONE);
+
                     }
 
                     @Override
