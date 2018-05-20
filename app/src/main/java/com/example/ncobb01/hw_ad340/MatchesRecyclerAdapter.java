@@ -65,27 +65,27 @@ public class MatchesRecyclerAdapter extends RecyclerView.Adapter<MatchesRecycler
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-        if(mValues == null || mListener == null) {
-            return;
-        }
-        holder.mItem = mValues.get(position);
-        holder.mName.setText(mValues.get(position).matchId);
-        holder.mImgUrl = mValues.get(position).matchImageURL;
-        Picasso.get().load(holder.mImgUrl).into(holder.mImage);
-        holder.liked = mValues.get(position).liked;
-
-
-        holder.likeBtn.setOnClickListener(v -> {
-            if (null != mListener) {
-
-                if (!holder.liked) {
-                    holder.likeBtn.setColorFilter(Color.WHITE);
-                } else {
-                    holder.likeBtn.setColorFilter(Color.GREEN);
-                }
-
-            }
-        });
+//        if(mValues == null || mListener == null) {
+//            return;
+//        }
+//        holder.mItem = mValues.get(position);
+//        holder.mName.setText(mValues.get(position).matchId);
+//        holder.mImgUrl = mValues.get(position).matchImageURL;
+//        Picasso.get().load(holder.mImgUrl).into(holder.mImage);
+//        holder.liked = mValues.get(position).liked;
+//
+//
+//        holder.likeBtn.setOnClickListener(v -> {
+//            if (null != mListener) {
+//
+//                if (!holder.liked) {
+//                    holder.likeBtn.setColorFilter(Color.WHITE);
+//                } else {
+//                    holder.likeBtn.setColorFilter(Color.GREEN);
+//                }
+//
+//            }
+//        });
     }
 
     @Override
@@ -99,19 +99,19 @@ public class MatchesRecyclerAdapter extends RecyclerView.Adapter<MatchesRecycler
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         View mView;
-        public final TextView mName;
-        public final ImageView mImage;
-        public final ImageButton likeBtn;
+//        public final TextView mName;
+//        public final ImageView mImage;
+//        public final ImageButton likeBtn;
         public String mImgUrl;
         public Matches mItem;
         public Boolean liked;
 
         public ViewHolder(View view) {
             super(view);
-            mView = view;
-            mName = view.findViewById(R.id.card_title);
-            mImage = view.findViewById(R.id.card_image);
-            likeBtn = view.findViewById(R.id.like_button);
+//            mView = view;
+//            mName = view.findViewById(R.id.card_title);
+//            mImage = view.findViewById(R.id.card_image);
+//            likeBtn = view.findViewById(R.id.like_button);
         }
     }
 }
