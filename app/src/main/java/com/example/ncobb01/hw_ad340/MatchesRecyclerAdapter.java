@@ -31,17 +31,17 @@ public class MatchesRecyclerAdapter extends RecyclerView.Adapter<MatchesRecycler
 
     public void updateMatchListItems(List<Matches> matches) {
 
-        final MatchDiffCallback diffCallback = new MatchDiffCallback(this.mValues, matches);
+//        final MatchDiffCallback diffCallback = new MatchDiffCallback(this.mValues, matches);
+//
+//        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
 
-        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
 
 
-
-        this.mValues.clear();
-
-        this.mValues.addAll(matches);
-
-        diffResult.dispatchUpdatesTo(this);
+//        this.mValues.clear();
+//
+//        this.mValues.addAll(matches);
+//
+//        diffResult.dispatchUpdatesTo(this);
 
     }
 

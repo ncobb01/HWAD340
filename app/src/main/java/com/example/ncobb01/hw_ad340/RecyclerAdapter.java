@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
- * Created by csa on 3/7/2017.
+ *
  */
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHoder>{
