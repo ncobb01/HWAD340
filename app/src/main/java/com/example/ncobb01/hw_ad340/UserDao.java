@@ -8,7 +8,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.example.mcnutt.inclassdemo.entity.User;
+import com.example.ncobb01.hw_ad340.User;
 
 import java.util.List;
 

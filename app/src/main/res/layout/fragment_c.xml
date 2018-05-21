@@ -1,15 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Settings"
-        />
 
-</RelativeLayout>
+
+<EditText
+        android:id="@+id/timeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="What time would you like a reminder?"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:inputType="text"/>
+
+    <EditText
+    android:id="@+id/maxDistEditText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Maximum distance for a match?"
+    android:layout_marginTop="40dp"
+    android:layout_marginBottom="40dp"
+    android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/genderEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your gender"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/profileTypeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Profile type"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:inputType="text"/>
+
+
+    <EditText
+        android:id="@+id/ageRangeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Age range you are intersted in"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:inputType="text"/>
+
+
+
+
+    <!--<Button-->
+        <!--android:id="@+id/update"-->
+        <!--android:layout_below="@+id/photoUrl"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="update"-->
+        <!--android:onClick="updateDatabase"/>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/delete"-->
+        <!--android:layout_below="@+id/photoUrl"-->
+        <!--android:layout_toEndOf="@+id/update"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="delete"-->
+        <!--android:onClick="deleteUser"/>-->
+
+</LinearLayout>
+
+    </ScrollView>
