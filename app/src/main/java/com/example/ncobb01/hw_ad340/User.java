@@ -15,8 +15,13 @@ public class User {
 //    private String firstName;
 
 
+
+
     @ColumnInfo(name = "reminder_time")
     private String reminderTime;
+
+
+
 
 //
 //    @ColumnInfo(name = "last_name")
@@ -56,19 +61,19 @@ public class User {
         this.email = email;
     }
 
-    public String getTime() {
-        return reminderTime;
-    }
-
-    public void setTime(String reminderTime) {
-        this.reminderTime = reminderTime;
-    }
+//    public String getTime() {
+//        return reminderTime;
+//    }
+//
+//    public void setTime(String reminderTime) {
+//        this.reminderTime = reminderTime;
+//    }
 
     public String getMaxDistance() {
         return maxDistance;
     }
 
-    public void getMaxDistance(String maxDistance) {
+    public void setMaxDistance(String maxDistance) {
         this.maxDistance = maxDistance;
     }
 
@@ -80,6 +85,13 @@ public class User {
         this.gender = gender;
     }
 
+    public String getReminderTime() {
+        return reminderTime;
+    }
+
+    public void setReminderTime(String reminderTime) {
+        this.reminderTime = reminderTime;
+    }
 
     public String getProfileType() {
         return profileType;

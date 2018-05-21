@@ -18,7 +18,7 @@ public class AppDatabaseSingleton {
     public static AppDatabase getDatabase(Context context) {
         if(db == null) {
             db = Room.databaseBuilder(context,
-                    AppDatabase.class, "sample-database")
+                    AppDatabase.class, "my-database")
                    // .addMigrations(MIGRATION_2_3)
                     .build();
         }
