@@ -10,15 +10,42 @@ public class User {
     @PrimaryKey
     @NonNull
     private String email = "";
+//
+//    @ColumnInfo(name = "first_name")
+//    private String firstName;
 
-    @ColumnInfo(name = "first_name")
-    private String firstName;
 
-    @ColumnInfo(name = "last_name")
-    private String lastName;
+    @ColumnInfo(name = "reminder_time")
+    private String reminderTime;
 
-    @ColumnInfo(name = "photo_url")
-    private String photoUrl;
+//
+//    @ColumnInfo(name = "last_name")
+//    private String lastName;
+
+
+    @ColumnInfo(name = "max_distance")
+    private String maxDistance;
+
+
+
+//    @ColumnInfo(name = "photo_url")
+//    private String photoUrl;
+
+
+    @ColumnInfo(name = "gender")
+   private String gender;
+
+
+    @ColumnInfo(name = "profile_type")
+    private String profileType;
+
+
+    @ColumnInfo(name = "age_range")
+    private String ageRange;
+
+
+
+
 
     @NonNull
     public String getEmail() {
@@ -29,27 +56,47 @@ public class User {
         this.email = email;
     }
 
-    public String getPhotoUrl() {
-        return photoUrl;
+    public String getTime() {
+        return reminderTime;
     }
 
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
+    public void setTime(String reminderTime) {
+        this.reminderTime = reminderTime;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getMaxDistance() {
+        return maxDistance;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void getMaxDistance(String maxDistance) {
+        this.maxDistance = maxDistance;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getGender() {
+        return gender;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
+
+
+    public String getProfileType() {
+        return profileType;
+    }
+
+    public void setProfileType(String profileType) {
+        this.profileType = profileType;
+    }
+
+
+    public String getAgeRange() {
+        return ageRange;
+    }
+
+    public void setAgeRange(String ageRange) {
+        this.ageRange = ageRange;
+    }
+
+
 }

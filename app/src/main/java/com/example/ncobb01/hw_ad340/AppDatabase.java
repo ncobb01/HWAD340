@@ -8,7 +8,7 @@ import android.arch.persistence.room.RoomDatabase;
 import com.example.ncobb01.hw_ad340.UserDao;
 import com.example.ncobb01.hw_ad340.User;
 
-    @Database(entities = {User.class}, version = 3)
+    @Database(entities = {User.class}, version = 1)
     public abstract class AppDatabase extends RoomDatabase {
         public abstract UserDao userDao();
 }
