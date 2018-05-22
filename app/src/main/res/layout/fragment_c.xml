@@ -72,13 +72,17 @@
 
 
 
-    <!--<Button-->
-        <!--android:id="@+id/update"-->
-        <!--android:layout_below="@+id/photoUrl"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="update"-->
-        <!--android:onClick="updateDatabase"/>-->
+    <Button
+        android:id="@+id/update"
+        android:layout_below="@+id/ageRangeEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update settings"
+        android:onClick="updateDatabase"/>
+
+    <!--//SetUserTask?-->
+
+
 
     <!--<Button-->
         <!--android:id="@+id/delete"-->
