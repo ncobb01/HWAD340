@@ -20,7 +20,7 @@ import java.util.Objects;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
+import java.util.List;
 
 public class FragmentC extends Fragment {
 
@@ -44,9 +44,14 @@ public class FragmentC extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        email = findViewById(R.id.email);
-        displayName = findViewById(R.id.displayName);
-        photoUrl = findViewById(R.id.photoUrl);
+        // need to make oncreate view method
+
+        email = findViewById(R.id.emailEditText);
+        reminderTime = findViewById(R.id.timeEditText);
+       maxDistance = findViewById(R.id.maxDistEditText);
+        gender = findViewById(R.id.genderEditText);
+        profileType = findViewById(R.id.profileTypeEditText);
+        ageRange = findViewById(R.id.ageRangeEditText);
 
         new GetUserTask(this, "test@gmail.com").execute();
     }
@@ -188,14 +193,27 @@ public class FragmentC extends Fragment {
 
         @Override
         protected void onPostExecute(User user) {
-            RoomPersistenceExampleActivity activity = (RoomPersistenceExampleActivity) weakActivity.get();
+            FragmentC activity = (FragmentC) weakActivity.get();
             if(user == null || activity == null) {
                 return;
             }
 
+
+//            activity.email.setText("");
+//            activity.reminderTime.setText("");
+//            activity.maxDistance.setText("");
+//            activity.gender.setText("");
+//            activity.profileType.setText("");
+//            activity.ageRange.setText("");
+
+
             activity.email.setText(user.getEmail());
-            activity.displayName.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
-            activity.photoUrl.setText(user.getPhotoUrl());
+            activity.reminderTime.setText(user.getReminderTime());
+            activity.maxDistance.setText(user.getMaxDistance());
+            activity.gender.setText(user.getGender());
+            activity.profileType.setText(user.getProfileType());
+            activity.ageRange.setText(user.getAgeRange());
+
         }
     }
 
@@ -230,14 +248,17 @@ public class FragmentC extends Fragment {
 
         @Override
         protected void onPostExecute(User user) {
-            RoomPersistenceExampleActivity activity = (RoomPersistenceExampleActivity) weakActivity.get();
+            FragmentC activity = (FragmentC) weakActivity.get();
             if(user == null || activity == null) {
                 return;
             }
 
             activity.email.setText(user.getEmail());
-            activity.displayName.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
-            activity.photoUrl.setText(user.getPhotoUrl());
+            activity.reminderTime.setText(user.getReminderTime());
+            activity.maxDistance.setText(user.getMaxDistance());
+            activity.gender.setText(user.getGender());
+            activity.profileType.setText(user.getProfileType());
+            activity.ageRange.setText(user.getAgeRange());
         }
     }
 }
