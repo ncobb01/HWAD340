@@ -1,265 +1,222 @@
 package com.example.ncobb01.hw_ad340;
 
+
 import android.os.AsyncTask;
-import android.support.v4.app.Fragment;
-import android.content.Intent;
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
+
+import com.example.ncobb01.hw_ad340.Entity.Settings;
+
+
 import java.lang.ref.WeakReference;
-import java.util.Objects;
-import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import java.util.List;
 
 public class FragmentC extends Fragment {
 
-    private static final String TAG = FragmentA.class.getSimpleName();
-
-    public TextView email;
-    public TextView reminderTime;
-    public TextView maxDistance;
-    public TextView gender;
-    public TextView profileType;
-    public TextView ageRange;
+    public Spinner minute, hour, isAfternoon, radius,  rangeLow, rangeHigh, sexuality, gender;
+    public TextView settingsError;
+    public Switch privacy;
+    public Button save;
 
 
+
+    @Nullable
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        Log.i(TAG, "onAttach()");
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View SettingsView = inflater.inflate(R.layout.fragment_c, container, false);
+
+        hour = SettingsView.findViewById(R.id.hour);
+        minute = SettingsView.findViewById(R.id.minute);
+        isAfternoon = SettingsView.findViewById(R.id.isAfternoon);
+        radius = SettingsView.findViewById(R.id.radius);
+        sexuality = SettingsView.findViewById(R.id.sexuality);
+        gender = SettingsView.findViewById(R.id.gender);
+        rangeLow = SettingsView.findViewById(R.id.rangeLow);
+        rangeHigh = SettingsView.findViewById(R.id.rangeHigh);
+        privacy = SettingsView.findViewById(R.id.privacy);
+        save = SettingsView.findViewById(R.id.save);
+        settingsError = SettingsView.findViewById(R.id.settingsError);
+
+        save.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                int low = getIntValue(rangeLow);
+                int high = getIntValue(rangeHigh);
+
+                if(low < high) {
+                    settingsError.setText("");
+                    updateDatabase(v);
+                }else {
+                    settingsError.setText("Bad Range");
+                }
+            }
+        });
+
+        new GetSettings(this,0).execute();
+
+        return SettingsView;
     }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        // need to make oncreate view method
-
-        email = findViewById(R.id.emailEditText);
-        reminderTime = findViewById(R.id.timeEditText);
-       maxDistance = findViewById(R.id.maxDistEditText);
-        gender = findViewById(R.id.genderEditText);
-        profileType = findViewById(R.id.profileTypeEditText);
-        ageRange = findViewById(R.id.ageRangeEditText);
-
-        new GetUserTask(this, "test@gmail.com").execute();
-    }
-
 
     public void updateDatabase(View view) {
-        User fakeNewUser = new User();
-        String email = this.email.getText().toString();
-        if(email.equals("")) {
-            email = "fakeuser@google.com";
-        }
-        fakeNewUser.setEmail(email);
-        fakeNewUser.setReminderTime("12pm");
-        fakeNewUser.setMaxDistance("20");
-        fakeNewUser.setGender("Male");
-        fakeNewUser.setProfileType("Public");
-        fakeNewUser.setAgeRange("20-45");
+        Settings newSettings = new Settings();
 
-        new UpdateUserTask(this, fakeNewUser).execute();
+        int hour = (int) this.hour.getSelectedItem();
+        int minute = (int) this.minute.getSelectedItem();
+        int radius = (int) this.radius.getSelectedItem();
+        int rangeLow = (int) this.rangeLow.getSelectedItem();
+        int rangeHigh = (int) this.rangeHigh.getSelectedItem();
+
+        boolean isAfternoon;
+        if (this.isAfternoon.getSelectedItem() == "PM") {
+            isAfternoon = true;
+        }else {
+            isAfternoon = false;
+        }
+        boolean privacy = this.privacy.isChecked();
+
+        String sexuality = (String) this.sexuality.getSelectedItem();
+        String gender = (String) this.gender.getSelectedItem();
+
+        newSettings.setId(0);
+        newSettings.setHour(hour);
+        newSettings.setMinute(minute);
+        newSettings.setRadius(radius);
+        newSettings.setRangeLow(rangeLow);
+        newSettings.setRangeHigh(rangeHigh);
+        newSettings.setAfternoon(isAfternoon);
+        newSettings.setPrivacy(privacy);
+        newSettings.setSexuality(sexuality);
+        newSettings.setGender(gender);
+
+        new UpdateSettings(this, newSettings).execute();
     }
 
-
-    @Override
-    protected User doInBackground(Void... voids) {
-        Activity activity = weakActivity.get();
-        if(activity == null) {
-            return null;
-        }
-
-        AppDatabase db = AppDatabaseSingleton.getDatabase(activity.getApplicationContext());
-
-        db.userDao().delete(user);
-        return user;
-    }
-
-
-
-
-
-
-
-
-
-    @Override
-    protected void onPostExecute(User user) {
-        FragmentC activity = (FragmentC) weakActivity.get();
-        if(user == null || activity == null) {
-            return;
+    public static int getIndex(Spinner spinner, String myString){
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
+                return i;
+            }
         }
 
-        activity.email.setText("");
-        activity.reminderTime.setText("");
-        activity.maxDistance.setText("");
-        activity.gender.setText("");
-        activity.profileType.setText("");
-        activity.ageRange.setText("");
+        return 0;
     }
 
+    public static int getIndex(Spinner spinner, int myInt){
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).equals(myInt)){
+                return i;
+            }
+        }
 
-
-
-
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.i(TAG, "onActivityCreated()");
+        return 0;
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.i(TAG, "onStart()");
+    public static int getIntValue(Spinner mySpinner) {
+        int value = (int) mySpinner.getSelectedItem();
+        return value;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.i(TAG, "onResume()");
+    public static String getStringValue(Spinner mySpinner) {
+        String value = mySpinner.getSelectedItem().toString();
+        return value;
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.i(TAG, "onPause()");
-    }
+    private static class GetSettings extends AsyncTask<Void, Void, Settings> {
+        private WeakReference<Fragment> weakFragment;
+        private int id;
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.i(TAG, "onStop()");
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.i(TAG, "onDestroyView()");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, "onDestroy()");
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.i(TAG, "onDetach()");
-    }
-
-
-
-
-
-    private static class UpdateUserTask extends AsyncTask<Void, Void, User> {
-
-        private WeakReference<Activity> weakActivity;
-        private User user;
-
-        public UpdateUserTask(Activity activity, User user) {
-            weakActivity = new WeakReference<>(activity);
-            this.user = user;
+        public GetSettings(Fragment fragment, int id){
+            weakFragment = new WeakReference<>(fragment);
+            this.id = id;
         }
 
         @Override
-        protected User doInBackground(Void... voids) {
-            Activity activity = weakActivity.get();
-            if(activity == null) {
+        protected Settings doInBackground(Void... voids){
+            Fragment fragment = weakFragment.get();
+            if(fragment == null){
                 return null;
             }
 
+            AppDatabase db = AppDatabaseSingleton.getDatabase(fragment.getContext());
 
-            AppDatabase db = AppDatabaseSingleton.getDatabase(activity.getApplicationContext());
+            List<Settings> settings = db.settingsDao().getSettingsById(id);
 
-            db.userDao().updateUsers(user);
-            return user;
+            if(settings.size() <= 0 || settings.get(0) == null){
+                return null;
+            }
+
+            return settings.get(0);
         }
 
         @Override
-        protected void onPostExecute(User user) {
-            FragmentC activity = (FragmentC) weakActivity.get();
-            if(user == null || activity == null) {
+        protected void onPostExecute(Settings settings) {
+            FragmentC fragment = (FragmentC) weakFragment.get();
+            if(settings == null || fragment == null) {
+                return;
+            }
+            fragment.hour.setSelection(getIndex(fragment.hour,settings.getHour()));
+            fragment.minute.setSelection(getIndex(fragment.minute,settings.getMinute()));
+            fragment.isAfternoon.setSelected(settings.isAfternoon());
+            fragment.radius.setSelection(getIndex(fragment.isAfternoon,settings.getRadius()));
+            fragment.sexuality.setSelection(getIndex( fragment.sexuality,settings.getSexuality()));
+            fragment.gender.setSelection(getIndex(fragment.gender,settings.getGender()));
+            fragment.rangeLow.setSelection(getIndex(fragment.rangeLow,settings.getRangeLow()));
+            fragment.rangeHigh.setSelection(getIndex(fragment.rangeHigh,settings.getRangeHigh()));
+            fragment.privacy.setSelected(settings.isPrivacy());
+        }
+    }
+
+    private static class UpdateSettings extends AsyncTask<Void,Void,Settings> {
+        private WeakReference<Fragment> weakFragment;
+        private Settings settings;
+
+        public UpdateSettings(Fragment fragment, Settings settings) {
+            weakFragment = new WeakReference<>(fragment);
+            this.settings = settings;
+        }
+
+        @Override
+        protected Settings doInBackground(Void... voids) {
+            Fragment fragment = weakFragment.get();
+            if(fragment == null) {
+                return null;
+            }
+
+            AppDatabase db = AppDatabaseSingleton.getDatabase(fragment.getContext());
+
+            db.settingsDao().updateSettings(settings);
+            return settings;
+        }
+
+        @Override
+        protected void onPostExecute(Settings settings) {
+            FragmentC fragment = (FragmentC) weakFragment.get();
+            if(settings == null || fragment == null) {
                 return;
             }
 
-
-//            activity.email.setText("");
-//            activity.reminderTime.setText("");
-//            activity.maxDistance.setText("");
-//            activity.gender.setText("");
-//            activity.profileType.setText("");
-//            activity.ageRange.setText("");
-
-
-            activity.email.setText(user.getEmail());
-            activity.reminderTime.setText(user.getReminderTime());
-            activity.maxDistance.setText(user.getMaxDistance());
-            activity.gender.setText(user.getGender());
-            activity.profileType.setText(user.getProfileType());
-            activity.ageRange.setText(user.getAgeRange());
+            fragment.hour.setSelection(getIndex(fragment.hour,settings.getHour()));
+            fragment.minute.setSelection(getIndex(fragment.minute,settings.getMinute()));
+            fragment.isAfternoon.setSelected(settings.isAfternoon());
+            fragment.radius.setSelection(getIndex(fragment.isAfternoon,settings.getRadius()));
+            fragment.sexuality.setSelection(getIndex( fragment.sexuality,settings.getSexuality()));
+            fragment.gender.setSelection(getIndex(fragment.gender,settings.getGender()));
+            fragment.rangeLow.setSelection(getIndex(fragment.rangeLow,settings.getRangeLow()));
+            fragment.rangeHigh.setSelection(getIndex(fragment.rangeHigh,settings.getRangeHigh()));
+            fragment.privacy.setSelected(settings.isPrivacy());
 
         }
     }
 
-    private static class GetUserTask extends AsyncTask<Void, Void, User> {
 
-        private WeakReference<Activity> weakActivity;
-        private String userEmail;
-
-        public GetUserTask(Activity activity, String userEmail) {
-            weakActivity = new WeakReference<>(activity);
-            this.userEmail = userEmail;
-        }
-
-        @Override
-        protected User doInBackground(Void... voids) {
-            Activity activity = weakActivity.get();
-            if(activity == null) {
-                return null;
-            }
-
-            AppDatabase db = AppDatabaseSingleton.getDatabase(activity.getApplicationContext());
-
-            String[] emails = { userEmail };
-
-            List<User> users = db.userDao().loadAllByIds(emails);
-
-            if(users.size() <= 0 || users.get(0) == null) {
-                return null;
-            }
-            return users.get(0);
-        }
-
-        @Override
-        protected void onPostExecute(User user) {
-            FragmentC activity = (FragmentC) weakActivity.get();
-            if(user == null || activity == null) {
-                return;
-            }
-
-            activity.email.setText(user.getEmail());
-            activity.reminderTime.setText(user.getReminderTime());
-            activity.maxDistance.setText(user.getMaxDistance());
-            activity.gender.setText(user.getGender());
-            activity.profileType.setText(user.getProfileType());
-            activity.ageRange.setText(user.getAgeRange());
-        }
-    }
 }
 

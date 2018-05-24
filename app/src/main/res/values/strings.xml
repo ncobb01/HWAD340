@@ -39,6 +39,13 @@
     </string>
     <string name="detail_location">"8 Rue Scribe, 75009 Paris, France"</string>
     <string name="nathan_cobb_5_18_18">Nathan Cobb 5-18-18</string>
-
+    <string name="search_radius">Search Radius</string>
+    <string name="what_is_your_orientation">What is your orientation and gender</string>
+    <string name="age_range">Age Range</string>
+    <string name="to">To</string>
+    <string name="set_profile_to_private">Toogle right to set profile to private.</string>
+    <string name="reminder_time">Reminder Time</string>
+    <string name="invalidRange">Invalid age range</string>
+    <string name="save_my_settings">Save my settings</string>
 
 </resources>

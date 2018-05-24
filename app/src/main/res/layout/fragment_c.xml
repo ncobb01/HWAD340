@@ -1,98 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/relativeLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
-
-    <EditText
-        android:id="@+id/emailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Please enter your email for a matches reminder"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
-        android:inputType="text"/>
-
-<EditText
-        android:id="@+id/timeEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="What time would you like your reminder?"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
-        android:inputType="text"/>
-
-    <EditText
-    android:id="@+id/maxDistEditText"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Maximum distance for a match?"
-    android:layout_marginTop="40dp"
-    android:layout_marginBottom="40dp"
-    android:inputType="text"/>
-
-    <EditText
-        android:id="@+id/genderEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Your gender"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
-        android:inputType="text"/>
-
-    <EditText
-        android:id="@+id/profileTypeEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Profile type"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
-        android:inputType="text"/>
-
-
-    <EditText
-        android:id="@+id/ageRangeEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Age range you are intersted in"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
-        android:inputType="text"/>
-
-
-
-
-    <Button
-        android:id="@+id/update"
-        android:layout_below="@+id/ageRangeEditText"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update settings"
-        android:onClick="updateDatabase"/>
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+       />
 
-    <!--//SetUserTask?-->
+    <TextView
+        android:id="@+id/reminderTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/reminder_time"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
+    <Spinner
+        android:id="@+id/hour"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reminderTime"
+        android:entries="@array/hours"/>
 
+    <Spinner
+        android:id="@+id/minute"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/hour"
+        app:layout_constraintTop_toBottomOf="@+id/reminderTime"
+        android:entries="@array/minutes"/>
 
-    <!--<Button-->
-        <!--android:id="@+id/delete"-->
-        <!--android:layout_below="@+id/photoUrl"-->
-        <!--android:layout_toEndOf="@+id/update"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="delete"-->
-        <!--android:onClick="deleteUser"/>-->
+    <Spinner
+        android:id="@+id/isAfternoon"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/minute"
+        app:layout_constraintTop_toBottomOf="@+id/reminderTime"
+        android:entries="@array/isAfternoon"/>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/searchRadius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/search_radius"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hour"
+        />
 
-    </ScrollView>
+    <Spinner
+        android:id="@+id/radius"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchRadius"
+        android:entries="@array/radius"/>
+
+    <TextView
+        android:id="@+id/orientation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/what_is_your_orientation"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radius" />
+
+    <Spinner
+        android:id="@+id/sexuality"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orientation"
+        android:entries="@array/sexuality"/>
+
+    <Spinner
+        android:id="@+id/gender"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/sexuality"
+        app:layout_constraintTop_toBottomOf="@+id/orientation"
+        android:entries="@array/gender"/>
+
+    <TextView
+        android:id="@+id/ageRange"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/age_range"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sexuality" />
+
+    <Spinner
+        android:id="@+id/rangeLow"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageRange"
+    android:entries="@array/minAge"/>
+
+    <TextView
+        android:id="@+id/to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/to"
+        app:layout_constraintStart_toEndOf="@+id/rangeLow"
+        app:layout_constraintTop_toBottomOf="@+id/ageRange"
+/>
+
+    <Spinner
+        android:id="@+id/rangeHigh"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/to"
+        app:layout_constraintTop_toBottomOf="@+id/ageRange"
+        android:entries="@array/maxAge"/>
+
+    <Switch
+        android:id="@+id/privacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/set_profile_to_private"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rangeLow" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/save_my_settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/privacy" />
+
+    <TextView
+        android:id="@+id/settingsError"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+
+        app:layout_constraintStart_toEndOf="@+id/save"
+        app:layout_constraintTop_toBottomOf="@+id/privacy" />
+</android.support.constraint.ConstraintLayout>

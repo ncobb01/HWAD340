@@ -20,7 +20,7 @@ import com.example.ncobb01.hw_ad340.ViewModel.MatchesViewModel;
 
 //public class ConfirmationPage extends AppCompatActivity {
 
-public class ConfirmationPage extends AppCompatActivity implements MatchesFrag.OnListFragmentInteractionListener{
+public class ConfirmationPage extends AppCompatActivity {
 
     private static final String TAG = ConfirmationPage.class.getSimpleName();
 
@@ -101,18 +101,18 @@ public class ConfirmationPage extends AppCompatActivity implements MatchesFrag.O
 
 
     }
-    @Override
-    public  void onListFragmentInteraction(Matches item) {
-        if (!item.liked) {
-            item.liked = true;
-        } else {
-            item.liked = false;
-        }
-
-        Context context = getApplicationContext();
-
-        viewModel.updateMatch(item);
-    }
+//    @Override
+//    public  void onListFragmentInteraction(Matches item) {
+//        if (!item.liked) {
+//            item.liked = true;
+//        } else {
+//            item.liked = false;
+//        }
+//
+//        Context context = getApplicationContext();
+//
+//        viewModel.updateMatch(item);
+//    }
 
 
 
