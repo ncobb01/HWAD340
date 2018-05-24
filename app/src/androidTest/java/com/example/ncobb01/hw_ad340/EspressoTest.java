@@ -33,7 +33,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 
 @RunWith(AndroidJUnit4.class)
 public class EspressoTest {
-    private Card mActivity;
+//    private Card mActivity;
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
