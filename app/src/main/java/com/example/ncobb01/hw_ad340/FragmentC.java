@@ -50,13 +50,16 @@ public class FragmentC extends Fragment {
             public void onClick(View v) {
 
                 int low = getIntValue(rangeLow);
+
+
+
                 int high = getIntValue(rangeHigh);
 
                 if(low < high) {
                     settingsError.setText("");
                     updateDatabase(v);
                 }else {
-                    settingsError.setText("Bad Range");
+                    settingsError.setText(R.string.invalidRange);
                 }
             }
         });
@@ -122,6 +125,7 @@ public class FragmentC extends Fragment {
 
     public static int getIntValue(Spinner mySpinner) {
         int value = (int) mySpinner.getSelectedItem();
+
         return value;
     }
 

@@ -8,6 +8,12 @@ import static android.support.test.espresso.Espresso.onData;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static com.example.ncobb01.hw_ad340.TestUtils.delayFor;
+import static junit.framework.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.Is.is;
+import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.scrollTo;
@@ -83,6 +89,42 @@ public class EspressoTest {
 
     }
 
+
+
+
+    @Test
+    public void entryExample5() {
+
+        onView(withId(R.id.nameEditText))
+                .perform(typeText("Nathan Cobb"), closeSoftKeyboard());
+        onView(withId(R.id.nameEditText)).check(matches(withText("Nathan Cobb")));
+
+        onView(withId(R.id.occupationEditText))
+                .perform(typeText("Student"), closeSoftKeyboard());
+        onView(withId(R.id.occupationEditText)).check(matches(withText("Student")));
+
+        onView(withId(R.id.occupation2EditText))
+                .perform(typeText("Sun"), closeSoftKeyboard());
+        onView(withId(R.id.occupation2EditText)).check(matches(withText("Sun")));
+
+        onView(withId(R.id.secondActivityBtn)).perform(scrollTo(), click());
+
+
+    }
+
+    @Test
+    public void entryExample3() {
+
+     entryExample5();
+        closeSoftKeyboard();
+
+        onView(withId(R.id.tab_layout)).perform(swipeLeft());
+        onView(withId(R.id.tab_layout)).perform(swipeLeft()).perform(click());
+        onView(isRoot()).perform(delayFor(2000));
+
+
+
+    }
 
 
         public static void setDate ( int datePickerLaunchViewId, int year, int monthOfYear,
