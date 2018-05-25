@@ -14,8 +14,8 @@ import android.content.Intent;
 import android.content.Context;
 
 
-import com.example.ncobb01.hw_ad340.Model.Matches;
-import com.example.ncobb01.hw_ad340.ViewModel.MatchesViewModel;
+
+
 
 
 //public class ConfirmationPage extends AppCompatActivity {
@@ -24,15 +24,15 @@ public class ConfirmationPage extends AppCompatActivity {
 
     private static final String TAG = ConfirmationPage.class.getSimpleName();
 
-    private MatchesViewModel viewModel;
 
 
 
-    @Override
-    protected void onPause() {
-        viewModel.clear();
-        super.onPause();
-    }
+//
+//    @Override
+//    protected void onPause() {
+//        viewModel.clear();
+//        super.onPause();
+//    }
 
 
     @Override
@@ -40,7 +40,7 @@ public class ConfirmationPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_confirmation_page);
 
-        viewModel = new MatchesViewModel();
+//        viewModel = new MatchesViewModel();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);

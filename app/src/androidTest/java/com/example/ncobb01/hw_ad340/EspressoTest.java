@@ -135,7 +135,7 @@ public class EspressoTest {
         onView(isRoot());
         onView(withId(R.id.gender)).perform(click());
         onData(allOf(is(instanceOf(String.class)))).atPosition(2).perform(click());
-        
+
 
         onView(withId(R.id.save)).perform(click());
 

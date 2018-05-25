@@ -22,8 +22,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.ncobb01.hw_ad340.ViewModel.MatchesViewModel;
-import com.example.ncobb01.hw_ad340.Model.Matches;
 
 import java.util.ArrayList;
 import java.util.List;
