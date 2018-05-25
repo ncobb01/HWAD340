@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -25,6 +26,7 @@ public class FragmentC extends Fragment {
     public TextView settingsError;
     public Switch privacy;
     public Button save;
+    public ArrayAdapter genderAdapter;
 
 
 
@@ -45,6 +47,9 @@ public class FragmentC extends Fragment {
         save = SettingsView.findViewById(R.id.save);
         settingsError = SettingsView.findViewById(R.id.settingsError);
 
+        genderAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.gender, R.layout.simple_dropdown_textview);
+        genderAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
+        gender.setAdapter(genderAdapter);
         save.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -55,7 +60,7 @@ public class FragmentC extends Fragment {
 
                 int high = getIntValue(rangeHigh);
 
-                if(low < high) {
+                if(low > 17) {
                     settingsError.setText("");
                     updateDatabase(v);
                 }else {
@@ -72,11 +77,16 @@ public class FragmentC extends Fragment {
     public void updateDatabase(View view) {
         Settings newSettings = new Settings();
 
-        int hour = (int) this.hour.getSelectedItem();
-        int minute = (int) this.minute.getSelectedItem();
-        int radius = (int) this.radius.getSelectedItem();
-        int rangeLow = (int) this.rangeLow.getSelectedItem();
-        int rangeHigh = (int) this.rangeHigh.getSelectedItem();
+//        int value = Integer.parseInt((String)mySpinner.getSelectedItem());
+
+        int hour = Integer.parseInt((String)this.hour.getSelectedItem());
+//        int hour = (int) this.hour.getSelectedItem();
+
+
+        int minute = Integer.parseInt((String)this.minute.getSelectedItem());
+        int radius = Integer.parseInt((String)this.radius.getSelectedItem());
+        int rangeLow = Integer.parseInt((String)this.rangeLow.getSelectedItem());
+        int rangeHigh = Integer.parseInt((String)this.rangeHigh.getSelectedItem());
 
         boolean isAfternoon;
         if (this.isAfternoon.getSelectedItem() == "PM") {
@@ -101,6 +111,8 @@ public class FragmentC extends Fragment {
         newSettings.setGender(gender);
 
         new UpdateSettings(this, newSettings).execute();
+
+
     }
 
     public static int getIndex(Spinner spinner, String myString){
@@ -124,8 +136,7 @@ public class FragmentC extends Fragment {
     }
 
     public static int getIntValue(Spinner mySpinner) {
-        int value = (int) mySpinner.getSelectedItem();
-
+        int value = Integer.parseInt((String)mySpinner.getSelectedItem());
         return value;
     }
 
@@ -150,7 +161,7 @@ public class FragmentC extends Fragment {
                 return null;
             }
 
-            AppDatabase db = AppDatabaseSingleton.getDatabase(fragment.getContext());
+            AppDatabase db = AppDatabaseSingleton.getDatabase(fragment.getActivity());
 
             List<Settings> settings = db.settingsDao().getSettingsById(id);
 
@@ -167,15 +178,15 @@ public class FragmentC extends Fragment {
             if(settings == null || fragment == null) {
                 return;
             }
-            fragment.hour.setSelection(getIndex(fragment.hour,settings.getHour()));
+            /*fragment.hour.setSelection(getIndex(fragment.hour,settings.getHour()));
             fragment.minute.setSelection(getIndex(fragment.minute,settings.getMinute()));
             fragment.isAfternoon.setSelected(settings.isAfternoon());
             fragment.radius.setSelection(getIndex(fragment.isAfternoon,settings.getRadius()));
-            fragment.sexuality.setSelection(getIndex( fragment.sexuality,settings.getSexuality()));
-            fragment.gender.setSelection(getIndex(fragment.gender,settings.getGender()));
-            fragment.rangeLow.setSelection(getIndex(fragment.rangeLow,settings.getRangeLow()));
+            fragment.sexuality.setSelection(getIndex( fragment.sexuality,settings.getSexuality()));*/
+            fragment.gender.setSelection(fragment.genderAdapter.getPosition(settings.getGender()));
+            /*fragment.rangeLow.setSelection(getIndex(fragment.rangeLow,settings.getRangeLow()));
             fragment.rangeHigh.setSelection(getIndex(fragment.rangeHigh,settings.getRangeHigh()));
-            fragment.privacy.setSelected(settings.isPrivacy());
+            fragment.privacy.setSelected(settings.isPrivacy());*/
         }
     }
 
@@ -197,7 +208,7 @@ public class FragmentC extends Fragment {
 
             AppDatabase db = AppDatabaseSingleton.getDatabase(fragment.getContext());
 
-            db.settingsDao().updateSettings(settings);
+            db.settingsDao().insertAll(settings);
             return settings;
         }
 

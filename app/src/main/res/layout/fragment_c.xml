@@ -110,7 +110,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toEndOf="@+id/sexuality"
         app:layout_constraintTop_toBottomOf="@+id/orientation"
-        android:entries="@array/gender"/>
+        />
 
     <TextView
         android:id="@+id/ageRange"
