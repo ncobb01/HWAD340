@@ -144,35 +144,35 @@ public class FragmentC extends Fragment {
 
     }
 
-    public static int getIndex(Spinner spinner, String myString){
-        for (int i=0;i<spinner.getCount();i++){
-            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
-                return i;
-            }
-        }
+//    public static int getIndex(Spinner spinner, String myString){
+//        for (int i=0;i<spinner.getCount();i++){
+//            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
+//                return i;
+//            }
+//        }
+//
+//        return 0;
+//    }
 
-        return 0;
-    }
-
-    public static int getIndex(Spinner spinner, int myInt){
-        for (int i=0;i<spinner.getCount();i++){
-            if (spinner.getItemAtPosition(i).equals(myInt)){
-                return i;
-            }
-        }
-
-        return 0;
-    }
+//    public static int getIndex(Spinner spinner, int myInt){
+//        for (int i=0;i<spinner.getCount();i++){
+//            if (spinner.getItemAtPosition(i).equals(myInt)){
+//                return i;
+//            }
+//        }
+//
+//        return 0;
+//    }
 
     public static int getIntValue(Spinner mySpinner) {
         int value = Integer.parseInt((String)mySpinner.getSelectedItem());
         return value;
     }
 
-    public static String getStringValue(Spinner mySpinner) {
-        String value = mySpinner.getSelectedItem().toString();
-        return value;
-    }
+//    public static String getStringValue(Spinner mySpinner) {
+//        String value = mySpinner.getSelectedItem().toString();
+//        return value;
+//    }
 
     private static class GetSettings extends AsyncTask<Void, Void, Settings> {
         private WeakReference<Fragment> weakFragment;

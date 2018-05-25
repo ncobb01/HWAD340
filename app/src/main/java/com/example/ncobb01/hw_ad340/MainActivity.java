@@ -138,10 +138,10 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-    public void onLogin(View view) {
-        loginBtn.setText(R.string.Logout);
-        textView.setText(String.format(getString(R.string.Welcome), editTextName.getText()));
-    }
+//    public void onLogin(View view) {
+//        loginBtn.setText(R.string.Logout);
+//        textView.setText(String.format(getString(R.string.Welcome), editTextName.getText()));
+//    }
 
     @Override
     protected void onRestart() {
@@ -155,33 +155,33 @@ public class MainActivity extends AppCompatActivity  {
         Log.i(TAG, "onStart()");
     }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        Log.i(TAG, "onRestoreInstanceState()");
-        if (savedInstanceState.containsKey(Constants.KEY_NAME)) {
-            textView.setText((String)savedInstanceState.get(Constants.KEY_NAME));
-        }
-
-        if (savedInstanceState.containsKey(Constants.KEY_OCCUPATION)) {
-            textView.setText((String)savedInstanceState.get(Constants.KEY_OCCUPATION));
-        }
-
-
-
-
-        if (savedInstanceState.containsKey(Constants.KEY_BUTTON_TXT)) {
-            loginBtn.setText((String) savedInstanceState.get(Constants.KEY_BUTTON_TXT));
-        }
-
-
-        if (savedInstanceState.containsKey(Constants.KEY_OCCUPATION2)) {
-            textView.setText((String)savedInstanceState.get(Constants.KEY_OCCUPATION2));
-        }
-
-
-    }
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//
+//        Log.i(TAG, "onRestoreInstanceState()");
+//        if (savedInstanceState.containsKey(Constants.KEY_NAME)) {
+//            textView.setText((String)savedInstanceState.get(Constants.KEY_NAME));
+//        }
+//
+//        if (savedInstanceState.containsKey(Constants.KEY_OCCUPATION)) {
+//            textView.setText((String)savedInstanceState.get(Constants.KEY_OCCUPATION));
+//        }
+//
+//
+//
+//
+//        if (savedInstanceState.containsKey(Constants.KEY_BUTTON_TXT)) {
+//            loginBtn.setText((String) savedInstanceState.get(Constants.KEY_BUTTON_TXT));
+//        }
+//
+//
+//        if (savedInstanceState.containsKey(Constants.KEY_OCCUPATION2)) {
+//            textView.setText((String)savedInstanceState.get(Constants.KEY_OCCUPATION2));
+//        }
+//
+//
+//    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
