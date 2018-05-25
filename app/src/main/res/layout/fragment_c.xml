@@ -152,7 +152,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toEndOf="@+id/to"
         app:layout_constraintTop_toBottomOf="@+id/ageRange"
-        android:entries="@array/maxAge"/>
+        />
 
     <Switch
         android:id="@+id/privacy"

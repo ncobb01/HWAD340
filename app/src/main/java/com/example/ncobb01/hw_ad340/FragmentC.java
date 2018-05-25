@@ -41,6 +41,8 @@ public class FragmentC extends Fragment {
 
     public ArrayAdapter rangeHighAdapter;
 
+    public ArrayAdapter privacyAdapter;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -88,6 +90,11 @@ public class FragmentC extends Fragment {
         rangeLowAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.minAge, R.layout.simple_dropdown_textview);
         rangeLowAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
         rangeLow.setAdapter(rangeLowAdapter);
+
+        rangeHighAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.maxAge, R.layout.simple_dropdown_textview);
+        rangeHighAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
+        rangeHigh.setAdapter(rangeHighAdapter);
+
 
         save.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -229,6 +236,8 @@ public class FragmentC extends Fragment {
             fragment.radius.setSelection(fragment.radiusAdapter.getPosition("" + settings.getRadius()));
             fragment.sexuality.setSelection(fragment.sexualityAdapter.getPosition("" + settings.getSexuality()));
             fragment.rangeLow.setSelection(fragment.rangeLowAdapter.getPosition("" + settings.getRangeLow()));
+            fragment.rangeHigh.setSelection(fragment.rangeHighAdapter.getPosition("" + settings.getRangeHigh()));
+            fragment.privacy.setChecked(settings.isPrivacy());
             /*fragment.rangeLow.setSelection(getIndex(fragment.rangeLow,settings.getRangeLow()));
             fragment.rangeHigh.setSelection(getIndex(fragment.rangeHigh,settings.getRangeHigh()));
             fragment.privacy.setSelected(settings.isPrivacy());*/
