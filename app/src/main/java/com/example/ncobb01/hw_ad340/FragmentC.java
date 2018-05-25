@@ -13,10 +13,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import com.example.ncobb01.hw_ad340.Entity.Settings;
-
-
 import java.lang.ref.WeakReference;
 import java.util.List;
 
@@ -27,21 +25,14 @@ public class FragmentC extends Fragment {
     public Switch privacy;
     public Button save;
     public ArrayAdapter genderAdapter;
-
     public ArrayAdapter hourAdapter;
     public ArrayAdapter minuteAdapter;
-
     public ArrayAdapter isAfternoonAdapter;
-
     public ArrayAdapter radiusAdapter;
-
     public ArrayAdapter sexualityAdapter;
-
     public ArrayAdapter rangeLowAdapter;
-
     public ArrayAdapter rangeHighAdapter;
 
-    public ArrayAdapter privacyAdapter;
 
     @Nullable
     @Override
@@ -55,7 +46,6 @@ public class FragmentC extends Fragment {
         isAfternoon = SettingsView.findViewById(R.id.isAfternoon);
         radius = SettingsView.findViewById(R.id.radius);
         sexuality = SettingsView.findViewById(R.id.sexuality);
-
         rangeLow = SettingsView.findViewById(R.id.rangeLow);
         rangeHigh = SettingsView.findViewById(R.id.rangeHigh);
         privacy = SettingsView.findViewById(R.id.privacy);
@@ -65,7 +55,6 @@ public class FragmentC extends Fragment {
         genderAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.gender, R.layout.simple_dropdown_textview);
         genderAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
         gender.setAdapter(genderAdapter);
-
 
         hourAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.hours, R.layout.simple_dropdown_textview);
         hourAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
@@ -96,22 +85,21 @@ public class FragmentC extends Fragment {
         rangeHigh.setAdapter(rangeHighAdapter);
 
 
-        save.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
+        save.setOnClickListener(v -> {
 
-                int low = getIntValue(rangeLow);
+            int low = getIntValue(rangeLow);
 
 
 
-                int high = getIntValue(rangeHigh);
+            int high = getIntValue(rangeHigh);
 
-                if(low > 17) {
-                    settingsError.setText("");
-                    updateDatabase(v);
-                }else {
-                    settingsError.setText(R.string.invalidRange);
-                }
+            if(low > 17) {
+                settingsError.setText("");
+                updateDatabase(v);
+                Toast.makeText(getActivity(), "Thanks for saving.",
+                        Toast.LENGTH_SHORT).show();
+            }else {
+                settingsError.setText(R.string.invalidRange);
             }
         });
 
@@ -123,12 +111,7 @@ public class FragmentC extends Fragment {
     public void updateDatabase(View view) {
         Settings newSettings = new Settings();
 
-//        int value = Integer.parseInt((String)mySpinner.getSelectedItem());
-
         int hour = Integer.parseInt((String)this.hour.getSelectedItem());
-//        int hour = (int) this.hour.getSelectedItem();
-
-
         int minute = Integer.parseInt((String)this.minute.getSelectedItem());
         int radius = Integer.parseInt((String)this.radius.getSelectedItem());
         int rangeLow = Integer.parseInt((String)this.rangeLow.getSelectedItem());
@@ -224,11 +207,7 @@ public class FragmentC extends Fragment {
             if(settings == null || fragment == null) {
                 return;
             }
-            /*fragment.hour.setSelection(getIndex(fragment.hour,settings.getHour()));
-            fragment.minute.setSelection(getIndex(fragment.minute,settings.getMinute()));
-            fragment.isAfternoon.setSelected(settings.isAfternoon());
-            fragment.radius.setSelection(getIndex(fragment.isAfternoon,settings.getRadius()));
-            fragment.sexuality.setSelection(getIndex( fragment.sexuality,settings.getSexuality()));*/
+
             fragment.gender.setSelection(fragment.genderAdapter.getPosition(settings.getGender()));
             fragment.hour.setSelection(fragment.hourAdapter.getPosition("" + settings.getHour()));
             fragment.minute.setSelection(fragment.minuteAdapter.getPosition("" + settings.getMinute()));
@@ -238,9 +217,7 @@ public class FragmentC extends Fragment {
             fragment.rangeLow.setSelection(fragment.rangeLowAdapter.getPosition("" + settings.getRangeLow()));
             fragment.rangeHigh.setSelection(fragment.rangeHighAdapter.getPosition("" + settings.getRangeHigh()));
             fragment.privacy.setChecked(settings.isPrivacy());
-            /*fragment.rangeLow.setSelection(getIndex(fragment.rangeLow,settings.getRangeLow()));
-            fragment.rangeHigh.setSelection(getIndex(fragment.rangeHigh,settings.getRangeHigh()));
-            fragment.privacy.setSelected(settings.isPrivacy());*/
+
         }
     }
 
@@ -264,25 +241,6 @@ public class FragmentC extends Fragment {
 
             db.settingsDao().insertAll(settings);
             return settings;
-        }
-
-        @Override
-        protected void onPostExecute(Settings settings) {
-            FragmentC fragment = (FragmentC) weakFragment.get();
-            if(settings == null || fragment == null) {
-                return;
-            }
-
-            fragment.hour.setSelection(getIndex(fragment.hour,settings.getHour()));
-            fragment.minute.setSelection(getIndex(fragment.minute,settings.getMinute()));
-            fragment.isAfternoon.setSelected(settings.isAfternoon());
-            fragment.radius.setSelection(getIndex(fragment.isAfternoon,settings.getRadius()));
-            fragment.sexuality.setSelection(getIndex( fragment.sexuality,settings.getSexuality()));
-            fragment.gender.setSelection(getIndex(fragment.gender,settings.getGender()));
-            fragment.rangeLow.setSelection(getIndex(fragment.rangeLow,settings.getRangeLow()));
-            fragment.rangeHigh.setSelection(getIndex(fragment.rangeHigh,settings.getRangeHigh()));
-            fragment.privacy.setSelected(settings.isPrivacy());
-
         }
     }
 
