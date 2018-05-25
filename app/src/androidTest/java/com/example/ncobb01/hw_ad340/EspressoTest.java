@@ -36,15 +36,11 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 
 
-
 @RunWith(AndroidJUnit4.class)
 public class EspressoTest {
-//    private Card mActivity;
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
-
-
 
     @Test
     public void mainActivityTest0() {
@@ -80,16 +76,11 @@ public class EspressoTest {
         onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
 
 
-
         onView(withId(R.id.tab_layout))
                .perform(swipeRight()) .perform(click())
                 .check(matches(isDisplayed()));
 
-
-
     }
-
-
 
 
     @Test
@@ -113,14 +104,40 @@ public class EspressoTest {
     }
 
     @Test
-    public void entryExample3() {
+    public void entryExample6() {
 
      entryExample5();
         closeSoftKeyboard();
 
-        onView(withId(R.id.tab_layout)).perform(swipeLeft());
-        onView(withId(R.id.tab_layout)).perform(swipeLeft()).perform(click());
-        onView(isRoot()).perform(delayFor(2000));
+        onView(withText("Settings")).perform(click());
+
+        onView(isRoot());
+        onView(withId(R.id.hour)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(6).perform(click());
+
+
+        onView(isRoot());
+        onView(withId(R.id.minute)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(1).perform(click());
+
+        onView(isRoot());
+        onView(withId(R.id.isAfternoon)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(1).perform(click());
+
+        onView(isRoot());
+        onView(withId(R.id.radius)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(8).perform(click());
+
+        onView(isRoot());
+        onView(withId(R.id.sexuality)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(3).perform(click());
+
+        onView(isRoot());
+        onView(withId(R.id.gender)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(2).perform(click());
+        
+
+        onView(withId(R.id.save)).perform(click());
 
 
 
@@ -144,8 +161,6 @@ setDate(R.id.dp, 1989, 8, 1);
        onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
 
    }
-
-
 
 
 
