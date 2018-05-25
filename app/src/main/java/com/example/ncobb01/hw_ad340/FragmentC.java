@@ -28,19 +28,32 @@ public class FragmentC extends Fragment {
     public Button save;
     public ArrayAdapter genderAdapter;
 
+    public ArrayAdapter hourAdapter;
+    public ArrayAdapter minuteAdapter;
 
+    public ArrayAdapter isAfternoonAdapter;
+
+    public ArrayAdapter radiusAdapter;
+
+    public ArrayAdapter sexualityAdapter;
+
+    public ArrayAdapter rangeLowAdapter;
+
+    public ArrayAdapter rangeHighAdapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View SettingsView = inflater.inflate(R.layout.fragment_c, container, false);
 
+
+        gender = SettingsView.findViewById(R.id.gender);
         hour = SettingsView.findViewById(R.id.hour);
         minute = SettingsView.findViewById(R.id.minute);
         isAfternoon = SettingsView.findViewById(R.id.isAfternoon);
         radius = SettingsView.findViewById(R.id.radius);
         sexuality = SettingsView.findViewById(R.id.sexuality);
-        gender = SettingsView.findViewById(R.id.gender);
+
         rangeLow = SettingsView.findViewById(R.id.rangeLow);
         rangeHigh = SettingsView.findViewById(R.id.rangeHigh);
         privacy = SettingsView.findViewById(R.id.privacy);
@@ -50,6 +63,32 @@ public class FragmentC extends Fragment {
         genderAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.gender, R.layout.simple_dropdown_textview);
         genderAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
         gender.setAdapter(genderAdapter);
+
+
+        hourAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.hours, R.layout.simple_dropdown_textview);
+        hourAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
+        hour.setAdapter(hourAdapter);
+
+        minuteAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.minutes, R.layout.simple_dropdown_textview);
+        minuteAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
+        minute.setAdapter(minuteAdapter);
+
+        isAfternoonAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.isAfternoon, R.layout.simple_dropdown_textview);
+        isAfternoonAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
+        isAfternoon.setAdapter(isAfternoonAdapter);
+
+        radiusAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.radius, R.layout.simple_dropdown_textview);
+        radiusAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
+        radius.setAdapter(radiusAdapter);
+
+        sexualityAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.sexuality, R.layout.simple_dropdown_textview);
+        sexualityAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
+        sexuality.setAdapter(sexualityAdapter);
+
+        rangeLowAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.minAge, R.layout.simple_dropdown_textview);
+        rangeLowAdapter.setDropDownViewResource(R.layout.simple_dropdown_textview);
+        rangeLow.setAdapter(rangeLowAdapter);
+
         save.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -184,6 +223,12 @@ public class FragmentC extends Fragment {
             fragment.radius.setSelection(getIndex(fragment.isAfternoon,settings.getRadius()));
             fragment.sexuality.setSelection(getIndex( fragment.sexuality,settings.getSexuality()));*/
             fragment.gender.setSelection(fragment.genderAdapter.getPosition(settings.getGender()));
+            fragment.hour.setSelection(fragment.hourAdapter.getPosition("" + settings.getHour()));
+            fragment.minute.setSelection(fragment.minuteAdapter.getPosition("" + settings.getMinute()));
+            fragment.isAfternoon.setSelection(fragment.isAfternoonAdapter.getPosition(settings.isAfternoon() ? "PM" : "AM"));
+            fragment.radius.setSelection(fragment.radiusAdapter.getPosition("" + settings.getRadius()));
+            fragment.sexuality.setSelection(fragment.sexualityAdapter.getPosition("" + settings.getSexuality()));
+            fragment.rangeLow.setSelection(fragment.rangeLowAdapter.getPosition("" + settings.getRangeLow()));
             /*fragment.rangeLow.setSelection(getIndex(fragment.rangeLow,settings.getRangeLow()));
             fragment.rangeHigh.setSelection(getIndex(fragment.rangeHigh,settings.getRangeHigh()));
             fragment.privacy.setSelected(settings.isPrivacy());*/

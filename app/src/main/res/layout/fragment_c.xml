@@ -37,7 +37,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reminderTime"
-        android:entries="@array/hours"/>
+       />
 
     <Spinner
         android:id="@+id/minute"
@@ -47,7 +47,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toEndOf="@+id/hour"
         app:layout_constraintTop_toBottomOf="@+id/reminderTime"
-        android:entries="@array/minutes"/>
+      />
 
     <Spinner
         android:id="@+id/isAfternoon"
@@ -57,7 +57,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toEndOf="@+id/minute"
         app:layout_constraintTop_toBottomOf="@+id/reminderTime"
-        android:entries="@array/isAfternoon"/>
+       />
 
     <TextView
         android:id="@+id/searchRadius"
@@ -79,7 +79,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchRadius"
-        android:entries="@array/radius"/>
+       />
 
     <TextView
         android:id="@+id/orientation"
@@ -100,7 +100,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orientation"
-        android:entries="@array/sexuality"/>
+     />
 
     <Spinner
         android:id="@+id/gender"
@@ -131,7 +131,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageRange"
-    android:entries="@array/minAge"/>
+   />
 
     <TextView
         android:id="@+id/to"
