@@ -116,9 +116,9 @@ public int calculateAge () {
 
         int age = (difYear + (difMonth + difDays / 30) / 12) - 1970;
 
-    if (age < 18) {
+    if (age <= 18) {
 
-        Toast.makeText(this, "Users should be 18 years old", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Users must be 18 years old!", Toast.LENGTH_SHORT).show();
 
 
     }

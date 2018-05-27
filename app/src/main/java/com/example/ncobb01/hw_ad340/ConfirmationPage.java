@@ -21,7 +21,7 @@ public class ConfirmationPage extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
 
-        StringBuilder msg = new StringBuilder("");
+        StringBuilder msg = new StringBuilder("Thanks for signing up ");
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
 
@@ -32,25 +32,25 @@ public class ConfirmationPage extends AppCompatActivity {
             Log.i(TAG, "Name: " + name);
         }
 
-        if (b.containsKey(Constants.KEY_OCCUPATION)) {
-            String occupation = b.getString(Constants.KEY_OCCUPATION);
-            msg.append(occupation).append("\n");
-            Log.i(TAG, "Occupation: " + occupation);
-        }
-
-        if (b.containsKey(Constants.KEY_AGE)) {
-            int age = b.getInt(Constants.KEY_AGE);
-            msg.append(age).append(" years old \n\n");
-            Log.i(TAG, "Age: " + age);
-        }
-
-
-
-        if (b.containsKey(Constants.KEY_OCCUPATION2)) {
-            String occupation2 = b.getString(Constants.KEY_OCCUPATION2);
-            msg.append(occupation2).append("\n");
-            Log.i(TAG, "Occupation2: " + occupation2);
-        }
+//        if (b.containsKey(Constants.KEY_OCCUPATION)) {
+//            String occupation = b.getString(Constants.KEY_OCCUPATION);
+//            msg.append(occupation).append("\n");
+//            Log.i(TAG, "Occupation: " + occupation);
+//        }
+//
+//        if (b.containsKey(Constants.KEY_AGE)) {
+//            int age = b.getInt(Constants.KEY_AGE);
+//            msg.append(age).append(" years old \n\n");
+//            Log.i(TAG, "Age: " + age);
+//        }
+//
+//
+//
+//        if (b.containsKey(Constants.KEY_OCCUPATION2)) {
+//            String occupation2 = b.getString(Constants.KEY_OCCUPATION2);
+//            msg.append(occupation2).append("\n");
+//            Log.i(TAG, "Occupation2: " + occupation2);
+//        }
 
 
 

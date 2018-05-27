@@ -62,14 +62,6 @@ public class EspressoTest {
                 .perform(typeText("Nathan Cobb"), closeSoftKeyboard());
         onView(withId(R.id.nameEditText)).check(matches(withText("Nathan Cobb")));
 
-        onView(withId(R.id.occupationEditText))
-                .perform(typeText("Student"), closeSoftKeyboard());
-        onView(withId(R.id.occupationEditText)).check(matches(withText("Student")));
-
-        onView(withId(R.id.occupation2EditText))
-                .perform(typeText("Sun"), closeSoftKeyboard());
-        onView(withId(R.id.occupation2EditText)).check(matches(withText("Sun")));
-
         onView(withId(R.id.secondActivityBtn)).perform(scrollTo(),click());
 
 
@@ -99,34 +91,22 @@ public class EspressoTest {
     public void canGoToSecondActivityWithMessage3() {
 
 
-        onView(withId(R.id.occupation2EditText))
-                .perform(typeText("I like long walks on the beach."), closeSoftKeyboard());
-        onView(withId(R.id.occupation2EditText)).check(matches(withText("I like long walks on the beach.")));
+        onView(withId(R.id.nameEditText))
+                .perform(typeText("Nathan"), closeSoftKeyboard());
+        onView(withId(R.id.nameEditText)).check(matches(withText("Nathan")));
 
 
         try {
             Intents.init();
             onView(withId(R.id.secondActivityBtn)).perform(scrollTo(), click());
             intended(hasComponent(ConfirmationPage.class.getName()));
-            intended(hasExtra(Constants.KEY_OCCUPATION2, "I like long walks on the beach."));
+            intended(hasExtra(Constants.KEY_NAME, "Nathan"));
         } finally {
             Intents.release();
         }
     }
 
-    @Test
-    public void canGoToSecondActivityWithMessage4() {
-        onView(withId(R.id.occupationEditText)).perform(typeText("Student"), closeSoftKeyboard());
 
-        try {
-            Intents.init();
-            onView(withId(R.id.secondActivityBtn)).perform(scrollTo(), click());
-            intended(hasComponent(ConfirmationPage.class.getName()));
-            intended(hasExtra(Constants.KEY_OCCUPATION, "Student"));
-        } finally {
-            Intents.release();
-        }
-    }
 }
 
 
