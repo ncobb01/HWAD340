@@ -18,21 +18,11 @@ import android.content.Context;
 
 
 
-//public class ConfirmationPage extends AppCompatActivity {
-
 public class ConfirmationPage extends AppCompatActivity {
 
     private static final String TAG = ConfirmationPage.class.getSimpleName();
 
 
-
-
-//
-//    @Override
-//    protected void onPause() {
-//        viewModel.clear();
-//        super.onPause();
-//    }
 
 
     @Override
@@ -101,18 +91,6 @@ public class ConfirmationPage extends AppCompatActivity {
 
 
     }
-//    @Override
-//    public  void onListFragmentInteraction(Matches item) {
-//        if (!item.liked) {
-//            item.liked = true;
-//        } else {
-//            item.liked = false;
-//        }
-//
-//        Context context = getApplicationContext();
-//
-//        viewModel.updateMatch(item);
-//    }
 
 
 
@@ -142,19 +120,6 @@ public class ConfirmationPage extends AppCompatActivity {
         public int getCount() {
             return 3;
         }
-
-
-
-
-
-
-
-//
-
-
-
-
-
 
 
 

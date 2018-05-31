@@ -133,7 +133,7 @@ public class MatchesFrag extends Fragment {
     }
 
     public static class ContentAdapter extends RecyclerView.Adapter<ViewHolder> {
-        // Set numbers of List in RecyclerView.
+
         private static int length;
         private ArrayList<Matches> myMatches;
 
@@ -141,7 +141,7 @@ public class MatchesFrag extends Fragment {
 
             myMatches = matches.getParcelableArrayList("matches");
             length = myMatches.size();
-            //a.recycle();
+
         }
 
         @Override
@@ -200,7 +200,7 @@ public class MatchesFrag extends Fragment {
     };
 
     public static double distFrom(double lat1, double lng1, double lat2, double lng2) {
-        double earthRadius = 3958.75; // miles (or 6371.0 kilometers)
+        double earthRadius = 3958.75;
         double dLat = Math.toRadians(lat2-lat1);
         double dLng = Math.toRadians(lng2-lng1);
         double sindLat = Math.sin(dLat / 2);
