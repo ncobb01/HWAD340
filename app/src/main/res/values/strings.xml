@@ -23,8 +23,10 @@
     <string name="click_to_see_your_profile">Click to see your profile!</string>
     <string name="nathan_cobb_4_30_18">Nathan Cobb 4_30_18</string>
     <string name="nathan_cobb_5_6_18">Nathan Cobb 5_6_18</string>
-
-
+    <string name="setTitle">Settings</string>
+    <string name="regTitle">Profile</string>
+    <string name="nameAge" formatted="false">%1$s, %2$s</string>
+    <string name="form">Back to Form</string>
     <string name="action_settings">Settings</string>
     <string name="item_title">Palais Garnier</string>
     <string name="item_desc">The Palais Garnier which locates in Paris was built from 1861 for
@@ -38,6 +40,10 @@
         deserunt mollit anim id est laborum.
     </string>
     <string name="detail_location">"8 Rue Scribe, 75009 Paris, France"</string>
+    <string name="matchTitle">Matches</string>
+    <string name="matchesPlaceHolder">You\'ll find potential matches here!</string>
+    <string name="liked" formatted="false">You liked %1$s.</string>
+    <string name="unliked" formatted="false">You unliked %1$s.</string>
     <string name="nathan_cobb_5_18_18">Nathan Cobb 5-18-18</string>
     <string name="search_radius">Search Radius</string>
     <string name="what_is_your_orientation">What is your orientation and gender</string>
