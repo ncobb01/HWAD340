@@ -20,10 +20,10 @@ public class FirebaseMatchesModel {
         listeners = new HashMap<>();
     }
 
-    public void addMatch(Matches match) {
-        DatabaseReference matchesRef = mDatabase.child("matches");
-        matchesRef.push().setValue(match);
-    }
+//    public void addMatch(Matches match) {
+//        DatabaseReference matchesRef = mDatabase.child("matches");
+//        matchesRef.push().setValue(match);
+//    }
 
     public void getMatches(final Consumer<DataSnapshot> dataChangedCallback, final Consumer<DatabaseError> dataErrorCallback) {
         DatabaseReference matchesRef = mDatabase.child("matches");
@@ -47,7 +47,7 @@ public class FirebaseMatchesModel {
         matchesRef.child(match.uid).setValue(match);
     }
 
-    public void clear() {
-        listeners.forEach(Query::removeEventListener);
-    }
+//    public void clear() {
+//        listeners.forEach(Query::removeEventListener);
+//    }
 }

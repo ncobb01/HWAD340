@@ -25,7 +25,7 @@ import android.support.annotation.Nullable;
 public class FragmentA extends Fragment {
 
     private static final String TAG = FragmentA.class.getSimpleName();
-    String mParam1;
+//    String mParam1;
 
 
     @Override

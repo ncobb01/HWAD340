@@ -20,9 +20,9 @@ public class MatchesViewModel {
         matchModel = new FirebaseMatchesModel();
     }
 
-    public void addMatch(Matches match){
-        matchModel.addMatch(match);
-    }
+//    public void addMatch(Matches match){
+//        matchModel.addMatch(match);
+//    }
 
     public void getMatches(Consumer<ArrayList<Matches>> responseCallback) {
         matchModel.getMatches(
@@ -44,7 +44,7 @@ public class MatchesViewModel {
         matchModel.updateMatchById(match);
     }
 
-    public void clear() {
-        matchModel.clear();
-    }
+//    public void clear() {
+//        matchModel.clear();
+//    }
 }

@@ -91,7 +91,7 @@ public class FragmentC extends Fragment {
 
 
 
-            int high = getIntValue(rangeHigh);
+//            int high = getIntValue(rangeHigh);
 
             if(low > 17) {
                 settingsError.setText("");
