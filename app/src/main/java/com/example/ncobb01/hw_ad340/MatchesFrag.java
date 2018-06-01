@@ -151,7 +151,7 @@ public class MatchesFrag extends Fragment {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            //setup picture
+
             if(myMatches.size() != 0) {
                 holder.match = myMatches.get(position);
                 String url = holder.match.imageUrl;
