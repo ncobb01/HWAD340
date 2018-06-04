@@ -11,19 +11,18 @@
         android:id="@+id/listView"></ListView>
 
 
-
     <Button
-        android:id="@+id/action_button"
-        android:visibility="visible"
+        android:id="@+id/likeButton"
         style="android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Like"
-        android:layout_marginTop="25dp"
         android:layout_marginBottom="25dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:text="@string/like"
         android:textColor="?attr/colorPrimary"
 
- />
+        android:visibility="visible" />
 
 
 

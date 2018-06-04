@@ -122,7 +122,7 @@ public class MatchesFrag extends Fragment {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
 
-                    likeButton.setColorFilter(ContextCompat.getColor(context, R.color.red), android.graphics.PorterDuff.Mode.SRC_IN);
+                    likeButton.setColorFilter(ContextCompat.getColor(context, R.color.blue), android.graphics.PorterDuff.Mode.SRC_IN);
                     match.liked = true;
                     viewModel.updateMatch(match);
                 }
