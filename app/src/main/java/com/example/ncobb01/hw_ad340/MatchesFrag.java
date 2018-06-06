@@ -30,7 +30,7 @@ public class MatchesFrag extends Fragment {
 
     private static MatchesViewModel viewModel = new MatchesViewModel();
     LocationManager locationManager;
-    Location myLocation;
+
 
 
     @Nullable
@@ -53,13 +53,6 @@ public class MatchesFrag extends Fragment {
 //
                                     inMatches.add(matches.get(i));
 //
-                            }
-
-                            if(inMatches.size() == 0){
-                                inMatches = matches;
-                                CharSequence text = "Here are all your matches!";
-                                Toast toast = Toast.makeText(getActivity(),text,Toast.LENGTH_SHORT);
-                                toast.show();
                             }
 
                             bundle.putParcelableArrayList("matches", inMatches);
@@ -151,11 +144,7 @@ public class MatchesFrag extends Fragment {
                 Picasso.get().load(url).into(holder.picture);
                 holder.name.setText(holder.match.name);
                 boolean liked = holder.match.liked;
-                if (liked) {
-                    holder.likeButton.setColorFilter(R.color.red);
-                } else {
-                    holder.likeButton.setColorFilter(R.color.dark_grey);
-                }
+
             }
         }
 
@@ -170,40 +159,8 @@ public class MatchesFrag extends Fragment {
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
     }
 
-    private final LocationListener locationlistenNetwork = new LocationListener() {
-        @Override
-        public void onLocationChanged(Location location) {
-            myLocation = location;
-        }
 
-        @Override
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-
-        }
-
-        @Override
-        public void onProviderEnabled(String provider) {
-
-        }
-
-        @Override
-        public void onProviderDisabled(String provider) {
-
-        }
     };
 
-    public static double distFrom(double lat1, double lng1, double lat2, double lng2) {
-        double earthRadius = 3958.75;
-        double dLat = Math.toRadians(lat2-lat1);
-        double dLng = Math.toRadians(lng2-lng1);
-        double sindLat = Math.sin(dLat / 2);
-        double sindLng = Math.sin(dLng / 2);
-        double a = Math.pow(sindLat, 2) + Math.pow(sindLng, 2)
-                * Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2));
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        double dist = earthRadius * c;
 
-        return dist;
-    }
 
-}
