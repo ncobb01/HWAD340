@@ -40,31 +40,24 @@ public class MatchesFrag extends Fragment {
         RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.recycler_view, container, false);
 
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-        if(isLocationEnabled()) {
+       if(isLocationEnabled()) {
 
             if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
                     ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER, 60 * 1000, 10, locationlistenNetwork);
-                myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
                 Bundle bundle = new Bundle();
                 viewModel.getMatches(
                         (ArrayList<Matches> matches) -> {
                             ArrayList<Matches> inMatches = new ArrayList<>();
                             for (int i = 0; i < matches.size(); ++i) {
-                                double matchLat = Double.parseDouble(matches.get(i).lat);
-                                double matchLon = Double.parseDouble(matches.get(i).longitude);
-                                double netLat = myLocation.getLatitude();
-                                double netLong = myLocation.getLongitude();
-
-                                double distance = distFrom(matchLat, matchLon, netLat, netLong);
-                                if (distance <= 10) {
+//
                                     inMatches.add(matches.get(i));
-                                }
+//
                             }
 
                             if(inMatches.size() == 0){
                                 inMatches = matches;
-                                CharSequence text = "No matches in range, defaulting to all matches";
+                                CharSequence text = "Here are all your matches!";
                                 Toast toast = Toast.makeText(getActivity(),text,Toast.LENGTH_SHORT);
                                 toast.show();
                             }
